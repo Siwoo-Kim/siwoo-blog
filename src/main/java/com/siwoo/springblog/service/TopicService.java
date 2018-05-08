@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public interface TopicService {
 
+    @Transactional(readOnly = false)
     Topic save(Topic topic);
     Topic nextTopic(Topic topic);
 
