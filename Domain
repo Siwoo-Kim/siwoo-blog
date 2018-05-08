@@ -1,0 +1,43 @@
+
+Domain
+    name: string
+    description: string
+
+
+BasicTime
+    updated
+    created
+
+Language:
+    Name :string
+    SvgName :string
+    Description: string
+    Type: {OBJECT_ORIENTED, FUNCTIONAL}
+    Categories: List<Category>
+
+Category:
+    Name :string
+    SvgName :string
+    basicTime: BasicTime
+    language: Language
+    Description :string
+    ShortDescription :string
+    Type: {FRAMEWORK, LANGUAGE, LIBRARY, OTHERS}
+    Topic :List<Topic>
+
+Topic
+    Name
+    BasicTime
+    Description
+    shortDescription
+    youtubeId: string
+    Rating: number
+    category :Category
+    Paragraph :List<Paragraph>
+
+Paragraph
+    Name
+    Description
+    Code: String{<Pre>}
+    parent: Paragraph
+    children: List<Paragraph>
