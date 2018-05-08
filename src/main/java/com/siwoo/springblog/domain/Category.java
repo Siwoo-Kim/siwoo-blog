@@ -39,6 +39,7 @@ public class Category {
 
     private String shortDescription;
 
+    @Column(name = "category_type")
     @Enumerated(EnumType.STRING)
     private CategoryType type;
 
