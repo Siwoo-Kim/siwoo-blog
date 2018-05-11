@@ -1,7 +1,7 @@
 package com.siwoo.springblog.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.siwoo.springblog.support.ParagraphException;
+import com.siwoo.springblog.domain.support.ParagraphException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -62,10 +62,11 @@ public class Paragraph {
         validateRelation(this, child);
         this.children.add(child);
 
-        if(!child.isParent(this)) {
+        if (!child.isParent(this)) {
             child.setParent(this);
         }
     }
+
     public void setChildren(Set<Paragraph> children) {
         this.children = new HashSet<>();
         for (Paragraph child : children) {
@@ -75,10 +76,10 @@ public class Paragraph {
     }
 
     void validateRelation(Paragraph parent, Paragraph child) {
-        if(parent.hasParent()) {
+        if (parent.hasParent()) {
             throw new ParagraphException("Parent cannot have  parent");
         }
-        if(child.hasChildren()) {
+        if (child.hasChildren()) {
             throw new ParagraphException("Children cannot have children");
         }
     }
@@ -87,7 +88,9 @@ public class Paragraph {
         return this.parent != null && this.parent.equals(parent);
     }
 
-    public boolean isChild(Paragraph child) { return this.children.contains(child); }
+    public boolean isChild(Paragraph child) {
+        return this.children.contains(child);
+    }
 
     private boolean hasParent() {
         return this.parent != null;

@@ -51,7 +51,7 @@ public class Topic {
 
     @JsonIgnore
     @OneToMany(mappedBy = "topic",
-    orphanRemoval = true, cascade = CascadeType.ALL)
+            orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Paragraph> paragraphs = new ArrayList<>();
 
     public int getNextIndex() {

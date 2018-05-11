@@ -21,12 +21,13 @@ import javax.validation.constraints.NotNull;
 @Data
 @Entity
 @Table(name = "tbl_notice")
-@EqualsAndHashCode(of = {"id","title","content"})
+@EqualsAndHashCode(of = {"id", "title", "content"})
 public class Notice {
 
     private static final Role NOTICE_FOR_ROLE = ADMIN;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -44,7 +45,7 @@ public class Notice {
     private int likes = 0;
 
     public void setBlogger(Blogger blogger) {
-        if(blogger.hasRole(NOTICE_FOR_ROLE)) {
+        if (blogger.hasRole(NOTICE_FOR_ROLE)) {
             this.blogger = blogger;
             return;
         }

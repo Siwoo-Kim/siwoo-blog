@@ -20,11 +20,11 @@ public class TestBasicDate {
 
     @Test
     public void daysFromNow() {
-        BasicDate basicDate = new BasicDate(LocalDate.of(2018,5,8),LocalDate.of(2018,5,9));
+        BasicDate basicDate = new BasicDate(LocalDate.of(2018, 5, 8), LocalDate.of(2018, 5, 9));
         assertEquals(basicDate.daysAgo(), 1);
-        basicDate = new BasicDate(LocalDate.of(2018,5,8),null);
+        basicDate = new BasicDate(LocalDate.of(2018, 5, 8), null);
         assertEquals(basicDate.daysAgo(), 2);
-        basicDate = new BasicDate(null,null);
+        basicDate = new BasicDate(null, null);
         assertEquals(basicDate.daysAgo(), -1);
     }
 }

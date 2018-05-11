@@ -4,6 +4,7 @@ import com.siwoo.springblog.domain.support.NoticeException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 /**
@@ -24,7 +25,7 @@ public class TestNotice {
         blogger.addRole(new BloggerRole(BloggerRole.Role.ADMIN));
         Notice notice = new Notice();
         notice.setBlogger(blogger);
-        assertNotNull(notice.getBlogger().equals(blogger));
+        assertTrue(notice.getBlogger().equals(blogger));
 
         /*blogger = new Blogger();
         blogger.addRole(new BloggerRole(BloggerRole.Role.GUEST));
@@ -35,7 +36,7 @@ public class TestNotice {
         blogger.addRole(null);
         notice = new Notice();
         notice.setBlogger(blogger);
-        assertNotNull(notice.getBlogger().equals(blogger));
+        assertTrue(notice.getBlogger().equals(blogger));
         fail();
     }
 

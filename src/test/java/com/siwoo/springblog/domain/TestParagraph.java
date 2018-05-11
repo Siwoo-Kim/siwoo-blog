@@ -1,6 +1,6 @@
 package com.siwoo.springblog.domain;
 
-import com.siwoo.springblog.support.ParagraphException;
+import com.siwoo.springblog.domain.support.ParagraphException;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -82,7 +82,7 @@ public class TestParagraph {
 //        parent.setParent(grandFather);
 //        fail();
 
-        parent.setChildren(new HashSet<>(Arrays.asList(child1,child2,parent2)));
+        parent.setChildren(new HashSet<>(Arrays.asList(child1, child2, parent2)));
 
         fail();
     }

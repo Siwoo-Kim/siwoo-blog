@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+
 import javax.persistence.Embeddable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -17,15 +18,17 @@ import java.time.Period;
  **/
 
 
-@Embeddable @ToString
+@Embeddable
+@ToString
 @Getter
-@EqualsAndHashCode(of = {"created","updated"})
+@EqualsAndHashCode(of = {"created", "updated"})
 public class BasicDate {
 
     private LocalDate created;
     private LocalDate updated;
 
-    protected BasicDate(){ }
+    protected BasicDate() {
+    }
 
     public BasicDate(LocalDate created, LocalDate updated) {
         this.created = created;
@@ -34,7 +37,7 @@ public class BasicDate {
 
     @JsonProperty("daysAgo")
     public int daysAgo() {
-        if(created == null && updated == null) {
+        if (created == null && updated == null) {
             return -1;
         }
         return updated == null ?

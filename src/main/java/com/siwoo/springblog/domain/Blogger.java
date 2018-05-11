@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 import static com.siwoo.springblog.domain.BloggerRole.Role;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +23,7 @@ import java.util.stream.Collectors;
 @Data
 @Entity
 @Table(name = "tbl_blogger")
-@EqualsAndHashCode(of = {"id","email","password"})
+@EqualsAndHashCode(of = {"id", "email", "password"})
 public class Blogger {
 
     private static final String AVATAR_IMG_RESOURCE_PATH = "/assets/img/blogger/";
@@ -48,8 +50,7 @@ public class Blogger {
 
     public void addRole(BloggerRole role) {
         this.roles.add(role);
-        System.out.println(role);
-        if(role.getBlogger() != this) {
+        if (role.getBlogger() != this) {
             role.setBlogger(this);
         }
     }
@@ -66,6 +67,6 @@ public class Blogger {
 
     @JsonProperty
     public String getAvatarImgPath() {
-        return  AVATAR_IMG_RESOURCE_PATH + avatarImgName;
+        return AVATAR_IMG_RESOURCE_PATH + avatarImgName;
     }
 }

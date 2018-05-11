@@ -28,4 +28,5 @@ public class NoticeController {
     public List<Notice> all() {
         return noticeRepository.findAllOrderByRecent();
     }
+    
 }

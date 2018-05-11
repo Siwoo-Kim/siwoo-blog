@@ -325,7 +325,7 @@ var CategoryBootstrapComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n.category-description {\r\n  margin-top: 45px;\r\n  margin-bottom: 45px;\r\n}\r\n\r\n.description-header mat-icon {\r\n  margin-right: 5px;\r\n}\r\n\r\n.description-content {\r\n  font-size: 16px;\r\n  line-height: 28px;\r\n}\r\n\r\n.go-first-chapter {\r\n  margin-top: 25px;\r\n}\r\n\r\n.go-first-chapter mat-card{\r\n  background-color: #fff;\r\n  border-radius: 4px;\r\n  box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);\r\n  box-sizing: border-box;\r\n  transition: box-shadow .5s;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  position: relative;\r\n  width: 150px;\r\n  min-width: 350px;\r\n  height: auto;\r\n  margin: auto;\r\n  padding: 24px;\r\n  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);\r\n}\r\n\r\n.go-first-chapter img {\r\n  height: 70px;\r\n}\r\n\r\n.go-first-chapter mat-card mat-card-title {\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  color: #3f51b5;\r\n}\r\n"
+module.exports = "\r\n.category-description {\r\n  margin-top: 45px;\r\n  margin-bottom: 45px;\r\n}\r\n\r\n.description-header mat-icon {\r\n  margin-right: 5px;\r\n}\r\n\r\n.description-content {\r\n  font-size: 16px;\r\n  line-height: 28px;\r\n}\r\n\r\n.go-first-chapter {\r\n  margin-top: 25px;\r\n}\r\n\r\n.go-first-chapter mat-card{\r\n  background-color: #fff;\r\n  border-radius: 4px;\r\n  box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);\r\n  box-sizing: border-box;\r\n  transition: box-shadow .5s;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  position: relative;\r\n  width: 150px;\r\n  min-width: 350px;\r\n  height: auto;\r\n  margin: auto;\r\n  padding: 24px;\r\n  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);\r\n}\r\n\r\n.go-first-chapter img {\r\n  height: 70px;\r\n}\r\n\r\n.go-first-chapter mat-card mat-card-title {\r\n  font-family: Lato, Roboto, Rubik, sans-serif;\r\n  font-size: 14px;\r\n  font-weight: bold;\r\n  color: #3f51b5;\r\n}\r\n\r\n.go-first-chapter mat-card-title, .go-first-chapter mat-card-subtitle {\r\n  font-family: Lato, Roboto, Rubik, sans-serif;\r\n  font-size: 14px;\r\n  font-weight: bold;\r\n}\r\n"
 
 /***/ }),
 
@@ -336,7 +336,7 @@ module.exports = "\r\n.category-description {\r\n  margin-top: 45px;\r\n  margin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"category-description ui text container\">\n  <!--Header-->\n  <div class=\"ui header dividing\" fxLayout fxLayoutAlign=\"space-between\">\n    <span class=\"description-header\">\n      <mat-icon [svgIcon]=\"category?.imgName\"></mat-icon>\n      {{ category?.name }}\n    </span>\n    <div class=\"sub header\" >\n      <mat-chip-list>\n        <mat-chip>{{category?.type}}</mat-chip>\n      </mat-chip-list>\n    </div>\n  </div>\n\n  <!--Content-->\n  <p class=\"description-content ui text\">\n    {{ category?.description }}\n  </p>\n\n  <div class=\"row go-first-chapter\" fxFlex fxLayoutAlign=\"center\"  >\n    <a [routerLink]=\"getPath()\">\n      <mat-card fxLayout\n                fxFlexAlign=\"center center\" >\n        <img fxFlex src=\"/assets/img/code-icon.svg\">\n        <mat-card-header fxFlex>\n          <mat-card-title>GET STARTED</mat-card-title>\n          <mat-card-subtitle>Go First Topic</mat-card-subtitle>\n        </mat-card-header>\n      </mat-card>\n    </a>\n  </div>\n</div>\n"
+module.exports = "<div class=\"category-description ui text container\">\n  <!--Header-->\n  <div class=\"ui header dividing\" fxLayout fxLayoutAlign=\"space-between\">\n    <span class=\"description-header\">\n      <mat-icon [svgIcon]=\"category?.imgName\"></mat-icon>\n      {{ category?.name }}\n    </span>\n    <div class=\"sub header\" >\n      <mat-chip-list>\n        <mat-chip>{{category?.type}}</mat-chip>\n      </mat-chip-list>\n    </div>\n  </div>\n\n  <!--Content-->\n  <p class=\"description-content ui text\">\n    {{ category?.description }}\n  </p>\n\n  <div class=\"row go-first-chapter\" fxFlex fxLayoutAlign=\"center\"  >\n    <a [routerLink]=\"['/category',category.name, firstTopic.name]\"\n       [queryParams]=\"{topicId: firstTopic.id}\" >\n      <mat-card fxLayout\n                fxFlexAlign=\"center center\" >\n        <img fxFlex src=\"/assets/img/code-icon.svg\">\n        <mat-card-header fxFlex>\n          <mat-card-title>GET STARTED</mat-card-title>\n          <mat-card-subtitle>Go First Topic</mat-card-subtitle>\n        </mat-card-header>\n      </mat-card>\n    </a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -352,6 +352,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryDescriptionComponent", function() { return CategoryDescriptionComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _model_category_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../model/category.model */ "./src/app/model/category.model.ts");
+/* harmony import */ var _model_topic_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../model/topic.model */ "./src/app/model/topic.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -361,6 +362,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var CategoryDescriptionComponent = /** @class */ (function () {
@@ -375,6 +377,10 @@ var CategoryDescriptionComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", _model_category_model__WEBPACK_IMPORTED_MODULE_1__["Category"])
     ], CategoryDescriptionComponent.prototype, "category", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _model_topic_model__WEBPACK_IMPORTED_MODULE_2__["Topic"])
+    ], CategoryDescriptionComponent.prototype, "firstTopic", void 0);
     CategoryDescriptionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-category-description',
@@ -408,7 +414,7 @@ module.exports = "\r\n.topic-list-group {\r\n  margin-top: 100px;\r\n  margin-bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-about-domain [domain]=\"domain\"></app-about-domain>\n\n<app-category-description [category]=\"category\"></app-category-description>\n\n<div class=\"container-fluid\" style=\"margin-top: 45px; margin-bottom: 45px\" >\n  <app-topic-table\n    [categoryName]=\"category?.name\"\n    [topics]=\"topics\"></app-topic-table>\n</div>\n\n<div class=\"topic-list-group\"\n     fxLayout=\"row no-wrap\" fxFlexAlign=\"center center\">\n  <button\n    fxFlex=\"30%\"\n    mat-raised-button\n    color=\"primary\"\n    [routerLink]=\"['/category',category?.name,topic?.name]\"\n    [queryParams]=\"{'topicId': topic.id}\"\n    *ngFor=\"let topic of topics\"> {{ topic?.name }}</button>\n</div>\n\n"
+module.exports = "<app-about-domain [domain]=\"domain\"></app-about-domain>\n\n<app-category-description\n  *ngIf=\"topics\"\n  [category]=\"category\"\n  [firstTopic]=\"getFirstTopic()\"></app-category-description>\n\n<div class=\"container-fluid\" style=\"margin-top: 45px; margin-bottom: 45px\" >\n  <app-topic-table\n    [categoryName]=\"category?.name\"\n    [topics]=\"topics\"></app-topic-table>\n</div>\n\n<div class=\"topic-list-group\"\n     fxLayout=\"row no-wrap\" fxFlexAlign=\"center center\">\n  <button\n    fxFlex=\"30%\"\n    mat-raised-button\n    color=\"primary\"\n    [routerLink]=\"['/category',category?.name,topic?.name]\"\n    [queryParams]=\"{'topicId': topic.id}\"\n    *ngFor=\"let topic of topics\"> {{ topic?.name }}</button>\n</div>\n\n"
 
 /***/ }),
 
@@ -467,6 +473,9 @@ var CategoryIntroductionComponent = /** @class */ (function () {
             _this.topics = _topics;
         });
     }
+    CategoryIntroductionComponent.prototype.getFirstTopic = function () {
+        return this.topics[0];
+    };
     CategoryIntroductionComponent.prototype.ngOnInit = function () {
     };
     CategoryIntroductionComponent = __decorate([
@@ -554,7 +563,6 @@ var TopicTableComponent = /** @class */ (function () {
     TopicTableComponent.prototype.ngOnInit = function () {
     };
     TopicTableComponent.prototype.resolvePath = function (element) {
-        console.log(element);
         return '/category/' + this.categoryName + '/' + element.name;
     };
     TopicTableComponent.prototype.resolveParams = function (element) {
@@ -1353,7 +1361,7 @@ var LoginModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: block;\r\n  margin: 20px;\r\n}\r\n\r\nmat-card-footer {\r\n  margin-top: 55px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\nmat-card-header {\r\n  margin-bottom: 40px;\r\n}\r\n"
+module.exports = "\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: block;\r\n  margin: 20px;\r\n}\r\n\r\nmat-card-footer {\r\n  margin-top: 55px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\nmat-card-header {\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.container {\r\n  height: 800px;\r\n}\r\n\r\nmat-card {\r\n  padding: 40px;\r\n}\r\n\r\nmat-card-header h1 {\r\n  font-family: Lato, Roboto;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  line-height: 32px;\r\n  margin: 15px;\r\n}\r\n"
 
 /***/ }),
 
@@ -1364,7 +1372,7 @@ module.exports = "\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"container\" style=\"height: 800px\" fxLayout fxLayoutAlign=\"center center\" >\n  <mat-card style=\"padding: 35px;\" fxFlex=\"400px\">\n    <mat-card-header fxLayout fxLayoutAlign=\"center center\" >\n      <mat-card-title>\n         <h1 style=\"    font-size: 24px;\n    font-weight: 400;\n    line-height: 32px;\n    margin: 15px;\">\n           Login <mat-icon [color]=\"form.hasError('credentials') ? 'accent' : 'primary'\"  >favorite</mat-icon> </h1>\n      </mat-card-title>\n    </mat-card-header>\n\n    <mat-card-content>\n      <form [formGroup]=\"form\" >\n        <mat-form-field class=\"example-full-width\">\n          <span matPrefix>* &nbsp;</span>\n          <input type=\"email\"\n                 formControlName=\"email\"\n                 #emailInput\n                 required\n                 email\n                 matInput\n                 placeholder=\"Email\">\n          <mat-hint align=\"start\">Enter your email</mat-hint>\n          <mat-hint align=\"end\">{{ emailInput.value.length }} / 40</mat-hint>\n          <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n          <mat-icon [matBadgeHidden]=\"!form.hasError('credentials')\"\n                    matBadge=\"!!\"\n                    matBadgeColor=\"accent\"\n                    matBadgeOverlap=\"true\"\n                    matSuffix>mail</mat-icon>\n        </mat-form-field>\n        <mat-form-field class=\"example-full-width\">\n          <span matPrefix>* &nbsp;</span>\n          <input type=\"password\"\n                 formControlName=\"password\"\n                 #passwordInput\n                 minlength=\"4\"\n                 required\n                 matInput\n                 placeholder=\"Password\">\n          <mat-hint align=\"start\">Enter your password</mat-hint>\n          <mat-hint align=\"end\">{{ passwordInput.value.length }} / 40</mat-hint>\n          <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n          <mat-icon matSuffix\n                    [matBadgeHidden]=\"!form.hasError('credentials')\"\n                    matBadge=\"!!\"\n                    matBadgeColor=\"accent\"\n                    matBadgeOverlap=\"true\">vpn_key</mat-icon>\n        </mat-form-field>\n      </form>\n    </mat-card-content>\n    <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n      <button mat-raised-button (click)=\"login(emailInput.value, passwordInput.value)\" color=\"primary\" >Login</button>\n      <button mat-raised-button (click)=\"goback()\" color=\"primary\" >Go Back</button>\n    </mat-card-footer>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center center\">\n  <mat-card fxFlex=\"400px\">\n    <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n      <mat-card-title>\n        <h1>\n          Login\n          <mat-icon [color]=\"form.hasError('credentials') ? 'accent' : 'primary'\">favorite</mat-icon>\n        </h1>\n        <mat-divider [inset]=\"true\"></mat-divider>\n      </mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <form [formGroup]=\"form\">\n        <mat-form-field>\n          <span matPrefix>* &nbsp;</span>\n          <input type=\"email\"\n                 formControlName=\"email\"\n                 #emailInput\n                 required\n                 email\n                 matInput\n                 placeholder=\"Email\">\n          <mat-hint align=\"start\">Enter your email</mat-hint>\n          <mat-hint align=\"end\">{{ emailInput.value.length }} / 40</mat-hint>\n          <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n          <mat-icon [matBadgeHidden]=\"!form.hasError('credentials')\"\n                    matBadge=\"!!\"\n                    matBadgeColor=\"accent\"\n                    matBadgeOverlap=\"true\"\n                    matSuffix>mail\n          </mat-icon>\n        </mat-form-field>\n        <mat-form-field class=\"example-full-width\">\n          <span matPrefix>* &nbsp;</span>\n          <input type=\"password\"\n                 formControlName=\"password\"\n                 #passwordInput\n                 minlength=\"4\"\n                 required\n                 matInput\n                 placeholder=\"Password\">\n          <mat-hint align=\"start\">Enter your password</mat-hint>\n          <mat-hint align=\"end\">{{ passwordInput.value.length }} / 40</mat-hint>\n          <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n          <mat-icon matSuffix\n                    [matBadgeHidden]=\"!form.hasError('credentials')\"\n                    matBadge=\"!!\"\n                    matBadgeColor=\"accent\"\n                    matBadgeOverlap=\"true\">vpn_key\n          </mat-icon>\n        </mat-form-field>\n      </form>\n    </mat-card-content>\n    <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n      <button mat-raised-button (click)=\"login(emailInput.value, passwordInput.value)\" color=\"primary\">Login</button>\n      <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n    </mat-card-footer>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -1405,7 +1413,6 @@ var LoginComponent = /** @class */ (function () {
         this.router = router;
         this.location = location;
         this.fb = fb;
-        this.invalid = false;
         this.form = this.build();
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -1419,7 +1426,8 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.authService
-            .authenticate(new _model_blogger_model__WEBPACK_IMPORTED_MODULE_2__["Login"](this.form.value['email'], this.form.value['password'])).subscribe(function (authenticate) {
+            .authenticate(new _model_blogger_model__WEBPACK_IMPORTED_MODULE_2__["Login"](this.form.value['email'], this.form.value['password']))
+            .subscribe(function (authenticate) {
             console.log(authenticate);
             if (authenticate) {
                 _this.router.navigateByUrl('/');
@@ -1577,7 +1585,7 @@ var DashBoardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\r\n\r\n.main-board-img {\r\n  background-size: cover;\r\n  width: calc(100% + 8px);\r\n  height: calc(100% - 100px);\r\n}\r\n\r\nmat-card-content p {\r\n  font-weight: bold;\r\n  font-size: 14px;\r\n  line-height: 20px;\r\n\r\n  font-family: Lato,sans-serif;\r\n  color: #34302d;\r\n}\r\n\r\n.main-board-footer {\r\n  margin-top: 5px;\r\n}\r\n\r\n.main-board-footer {\r\n  margin: 5px;\r\n}\r\n"
 
 /***/ }),
 
@@ -1588,7 +1596,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-board p-2\" fxLayout  fxLayoutGap=\"20px\" fxFlexOffset=\"20px\">\n  <mat-card class=\"example-card\" fxFlex fxFlex.lt-md=\"100%\" *ngFor=\"let domain of domains\">\n    <img mat-card-image\n         style=\"background-size: cover;    width: calc(100% + 8px);height: calc(100% - 100px)\"\n         [src]=\"domain.imgPath + '.svg'\">\n    <mat-card-content>\n      <p style=\"font-weight: bold;\n      font-size: 14px;\n    line-height: 20px;\n\n    font-family: Lato,sans-serif;\n    color: #34302d;\">\n        {{ domain.description }}\n      </p>\n    </mat-card-content>\n    <mat-card-footer style=\"margin-top: 5px\" >\n      <button mat-raised-button routerLink=\"/{{domain.name.toLowerCase()}}\" color=\"primary\" style=\"margin: 5px\">Get Start</button>\n      <button mat-raised-button color=\"primary\" style=\"margin: 5px\">Shared</button>\n    </mat-card-footer>\n\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"main-board p-2\" fxLayout fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\" fxFlexOffset=\"20px\">\n  <mat-card class=\"example-card\"\n            fxFlex\n            *ngFor=\"let domain of domains\">\n    <img mat-card-image\n         class=\"main-board-img\"\n         [src]=\"domain.imgPath + '.svg'\">\n    <mat-card-content>\n      <p>\n        {{ domain?.description }}\n      </p>\n    </mat-card-content>\n    <mat-card-footer class=\"main-board-footer\">\n      <button mat-raised-button\n              [disabled]=\"domain.name == 'Guides'\"\n              routerLink=\"/{{domain?.name.toLowerCase()}}\"\n              color=\"primary\">\n        Get Start\n      </button>\n    </mat-card-footer>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -1603,10 +1611,10 @@ module.exports = "<div class=\"main-board p-2\" fxLayout  fxLayoutGap=\"20px\" f
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainBoardComponent", function() { return MainBoardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_domain_repository_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../service/domain-repository.service */ "./src/app/service/domain-repository.service.ts");
-/* harmony import */ var rxjs_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/index */ "./node_modules/rxjs/index.js");
-/* harmony import */ var rxjs_index__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_index__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rxjs_operators_merge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators/merge */ "./node_modules/rxjs-compat/_esm5/operators/merge.js");
+/* harmony import */ var rxjs_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/index */ "./node_modules/rxjs/index.js");
+/* harmony import */ var rxjs_index__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(rxjs_index__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var rxjs_operators_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators/merge */ "./node_modules/rxjs-compat/_esm5/operators/merge.js");
+/* harmony import */ var _service_domain_repository_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../service/domain-repository.service */ "./src/app/service/domain-repository.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1632,7 +1640,7 @@ var MainBoardComponent = /** @class */ (function () {
     };
     MainBoardComponent.prototype.getMainDomains = function () {
         var _this = this;
-        Object(rxjs_index__WEBPACK_IMPORTED_MODULE_2__["forkJoin"])(this.domainRepository.byName(this.categoryDomainName), this.domainRepository.byName(this.guideDomainName))
+        Object(rxjs_index__WEBPACK_IMPORTED_MODULE_1__["forkJoin"])(this.domainRepository.byName(this.categoryDomainName), this.domainRepository.byName(this.guideDomainName))
             .subscribe(function (_a) {
             var domain1 = _a[0], domain2 = _a[1];
             _this.domains.push(domain1);
@@ -1646,7 +1654,7 @@ var MainBoardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./main-board.component.html */ "./src/app/main/dash-board/main-board/main-board.component.html"),
             styles: [__webpack_require__(/*! ./main-board.component.css */ "./src/app/main/dash-board/main-board/main-board.component.css")]
         }),
-        __metadata("design:paramtypes", [_service_domain_repository_service__WEBPACK_IMPORTED_MODULE_1__["DomainRepository"]])
+        __metadata("design:paramtypes", [_service_domain_repository_service__WEBPACK_IMPORTED_MODULE_3__["DomainRepository"]])
     ], MainBoardComponent);
     return MainBoardComponent;
 }());
@@ -1662,7 +1670,7 @@ var MainBoardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n.dashboard-card {\r\n  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;\r\n}\r\n\r\n.dashboard-card .summary a {\r\n  color: #3f51b5;\r\n  font-weight: 700;\r\n}\r\n\r\n.extra.text h3{\r\n  font-weight: bold;\r\n  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;\r\n}\r\n\r\n.dashboard-card-content {\r\n  max-height: 155px;\r\n  overflow: auto;\r\n}\r\n"
+module.exports = "\r\n.dashboard-card {\r\n  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;\r\n}\r\n\r\n.dashboard-card .summary a {\r\n  color: #3f51b5;\r\n  font-weight: 700;\r\n}\r\n\r\n.extra.text h3{\r\n  font-weight: bold;\r\n  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;\r\n}\r\n\r\n.dashboard-card-content {\r\n  max-height: 155px;\r\n  overflow: auto;\r\n}\r\n\r\n.header-icon {\r\n  cursor: pointer;\r\n  margin-right: 15px;\r\n}\r\n\r\n.extra.text {\r\n  font-weight: bold;\r\n  font-size: 14px;\r\n  line-height: 20px;\r\n  font-family: Lato,sans-serif;\r\n  color: #34302d;\r\n}\r\n"
 
 /***/ }),
 
@@ -1673,7 +1681,7 @@ module.exports = "\r\n.dashboard-card {\r\n  font-family: Lato,'Helvetica Neue',
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"dashboard-card\" >\n  <mat-card-title>\n    <h2><mat-icon\n      #icon\n      style=\"cursor: pointer\"\n      (mouseover)=\"icon.color = 'primary'\"\n      (mouseleave)=\"icon.color = ''\"\n      style=\"margin-right: 15px\">notifications_none</mat-icon> Notice Board</h2>\n  </mat-card-title>\n  <mat-card-content class=\"dashboard-card-content\" fxLayout=\"column\" fxLayoutAlign=\" center\">\n    <div class=\"ui feed\"  >\n      <div class=\"event\">\n        <div class=\"label\">\n          <img [src]=\"currentNotice?.blogger.avatarImgPath\">\n        </div>\n        <div class=\"content\">\n          <div class=\"summary\">\n            <a>{{currentNotice?.blogger.nickName }}</a> announced on the blog\n            <div class=\"date\">\n              {{currentNotice?.basicDate.daysAgo}} days ago\n            </div>\n          </div>\n          <div class=\"ui divider\"></div>\n          <div class=\"extra text\">\n            <h3 class=\"mat-h3\">{{ currentNotice?.title}}</h3>\n            {{ currentNotice?.content }}\n          </div>\n          <div class=\"meta\">\n            <a class=\"like\">\n              <i class=\"like icon\"></i> {{ currentNotice?.likes }} Likes\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </mat-card-content>\n  <mat-card-footer >\n    <div class=\"btn-groups\" fxLayout fxLayoutAlign=\"end \" *ngIf=\"notices\">\n      <button mat-icon-button\n              color=\"primary\"\n              [disableRipple]=\"true\"\n              [disabled]=\"isFirstNotice()\" (click)=\"beforeNotice()\">\n        <mat-icon>arrow_backward</mat-icon>\n      </button>\n      <button mat-icon-button\n              color=\"primary\"\n              [disableRipple]=\"true\"\n              [disabled]=\"isLastNotice()\" (click)=\"nextNotice()\">\n        <mat-icon>arrow_forward</mat-icon>\n      </button>\n    </div>\n  </mat-card-footer>\n</mat-card>\n"
+module.exports = "<mat-card class=\"dashboard-card\">\n  <mat-card-title>\n    <h2>\n      <mat-icon\n        class=\"header-icon\" #icon\n        (mouseover)=\"icon.color = 'primary'\"\n        (mouseleave)=\"icon.color = ''\">\n        notifications_none\n      </mat-icon>\n      Notice Board\n    </h2>\n    <mat-divider [inset]=\"true\"></mat-divider>\n  </mat-card-title>\n  <mat-card-content class=\"dashboard-card-content\" fxLayout=\"column\" fxLayoutAlign=\" center\">\n    <div class=\"ui feed\">\n      <div class=\"event\">\n        <div class=\"label\">\n          <img [src]=\"currentNotice?.blogger.avatarImgPath\">\n        </div>\n        <div class=\"content\">\n          <div class=\"summary\">\n            <a>{{currentNotice?.blogger.nickName }}</a> announced on the blog\n            <div class=\"date\">\n              {{currentNotice?.basicDate.daysAgo}} days ago\n            </div>\n          </div>\n          <div class=\"ui divider\"></div>\n          <div class=\"extra text\">\n            <h3 class=\"mat-h3\">{{ currentNotice?.title}}</h3>\n            {{ currentNotice?.content }}\n          </div>\n          <div class=\"meta\">\n            <a class=\"like\">\n              <i class=\"like icon\"></i> {{ currentNotice?.likes }} Likes\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </mat-card-content>\n  <mat-card-footer>\n    <div class=\"btn-groups\" fxLayout fxLayoutAlign=\"end \" *ngIf=\"notices\">\n      <button mat-icon-button\n              color=\"primary\"\n              [disableRipple]=\"true\"\n              [disabled]=\"isFirstNotice()\" (click)=\"beforeNotice()\">\n        <mat-icon>arrow_backward</mat-icon>\n      </button>\n      <button mat-icon-button\n              color=\"primary\"\n              [disableRipple]=\"true\"\n              [disabled]=\"isLastNotice()\" (click)=\"nextNotice()\">\n        <mat-icon>arrow_forward</mat-icon>\n      </button>\n    </div>\n  </mat-card-footer>\n</mat-card>\n"
 
 /***/ }),
 
@@ -2851,7 +2859,7 @@ var AboutDomainComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-toolbar {\r\n  padding: 12px;\r\n  font-size: 12px;\r\n  margin-top: 40px;\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n}\r\n\r\n.footer-container {\r\n  padding: 8px;\r\n  width: 100% ;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nmat-icon {\r\n  height: 50px;\r\n  display: block;\r\n  color: white;\r\n}\r\n\r\n.start span {\r\n  display: inline-block;\r\n  line-height: 50px;\r\n  margin: 0 40px;\r\n  vertical-align: bottom;\r\n}\r\n\r\n.start a {\r\n  font-size: 15px;\r\n  padding: 0;\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n"
+module.exports = "mat-toolbar {\r\n  padding: 12px;\r\n  font-size: 12px;\r\n  margin-top: 40px;\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n}\r\n\r\n.footer-container {\r\n  padding: 8px;\r\n  width: 100% ;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nmat-icon {\r\n  height: 50px;\r\n  display: block;\r\n  color: white;\r\n}\r\n\r\n.start span {\r\n  display: inline-block;\r\n  line-height: 50px;\r\n  margin: 0 40px;\r\n  vertical-align: bottom;\r\n}\r\n\r\n.start a {\r\n  font-size: 15px;\r\n  padding: 0;\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\n.middle button {\r\n  font-family: Roboto,sans-serif;\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n}\r\n\r\n.middle button a {\r\n  text-decoration: none;\r\n  color: white;\r\n}\r\n\r\n.middle button img {\r\n  height: 26px;\r\n  margin: 0 4px 3px 0;\r\n}\r\n"
 
 /***/ }),
 
@@ -2862,7 +2870,7 @@ module.exports = "mat-toolbar {\r\n  padding: 12px;\r\n  font-size: 12px;\r\n  m
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <div class=\"footer-container\"\n       fxLayout=\"row\">\n    <div class=\"start\" fxLayout fxFlexAlign=\"center center\">\n      <mat-icon svgIcon=\"angular-img-transparent\"\n                class=\"start-logo\"></mat-icon>\n      <span>\n        <a>Junior's Blog</a>\n      </span>\n    </div>\n    <div class=\"start\" fxLayout fxFlexAlign=\"center center\">\n      <span>\n        By Si-Woo Kim\n      </span>\n      <button mat-button\n\n              style=\"    font-family: Roboto,sans-serif;\n      font-size: 14px;\n      font-weight: 500;\">\n        <a href=\"https://github.com/Siwoo-Kim/blog\" class=\"wrapper\">\n        <img style=\"height: 26px;margin: 0 4px 3px 0;\" src=\"/assets/img/svg/github-img.svg\">Github\n        </a>\n      </button>\n    </div>\n\n    <div class=\"end\">\n      <p>\n        Version: 1.0.0\n      </p>\n    </div>\n  </div>\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar color=\"primary\">\n  <div class=\"footer-container\"\n       fxLayout=\"row\">\n    <div class=\"start\" fxLayout fxFlexAlign=\"center center\">\n      <mat-icon svgIcon=\"angular-img-transparent\"\n                class=\"start-logo\"></mat-icon>\n      <span>\n        <a>Junior's Blog</a>\n      </span>\n    </div>\n    <div class=\"middle\" fxLayout fxFlexAlign=\"center center\">\n      <button mat-button>\n        <a href=\"https://github.com/Siwoo-Kim/siwoo-blog\" class=\"wrapper\">\n          <img src=\"/assets/img/svg/github-img.svg\">Github\n        </a>\n      </button>\n    </div>\n\n    <div class=\"end\">\n      <p>\n        Version: 1.0.0\n      </p>\n    </div>\n  </div>\n</mat-toolbar>\n"
 
 /***/ }),
 

@@ -1,4 +1,4 @@
-package com.siwoo.springblog.support;
+package com.siwoo.springblog.domain.support;
 
 /**
  * @author SiWoo Kim,
@@ -8,9 +8,10 @@ package com.siwoo.springblog.support;
  * @since 2018-05-07 오후 1:19
  **/
 
-public class DomainException extends RuntimeException{
+public class ParagraphException extends DomainException {
 
-    public DomainException(String message) {
+    public ParagraphException(String message) {
         super(message);
     }
+
 }
