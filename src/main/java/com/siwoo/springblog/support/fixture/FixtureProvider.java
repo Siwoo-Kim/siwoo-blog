@@ -1,9 +1,7 @@
 package com.siwoo.springblog.support.fixture;
 
-import com.siwoo.springblog.domain.Category;
-import com.siwoo.springblog.domain.Domain;
-import com.siwoo.springblog.domain.Paragraph;
-import com.siwoo.springblog.domain.Topic;
+import com.siwoo.springblog.domain.*;
+import com.siwoo.springblog.repository.BloggerRepository;
 import com.siwoo.springblog.repository.CategoryRepository;
 import com.siwoo.springblog.repository.TopicRepository;
 
@@ -48,6 +46,10 @@ public class FixtureProvider {
         });
 
         return paragraphs;
+    }
+
+    public static List<Notice> notices(Blogger adminBlogger) {
+        return NoticeFixtureProvider.notices(adminBlogger);
     }
 
 }

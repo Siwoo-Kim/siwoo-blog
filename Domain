@@ -4,6 +4,25 @@ Domain
     description: string
 
 
+Notice
+    title: string
+    content: string,
+    basicDate: BasicDate
+    blogger: Blogger[BloggerRole.Role:ADMIN]
+    likes: int
+
+Blogger
+    email: string
+    password: string
+    name: string
+    nickName: string
+    roles: Set<BloggerRole>
+
+BloggerRole
+    blogger: Blogger
+    role: {ADMIN, GUEST}
+
+
 BasicTime
     updated
     created

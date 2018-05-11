@@ -12,7 +12,8 @@ import org.springframework.context.annotation.PropertySource;
  **/
 
 @Configuration
-@PropertySource({"classpath:/META-INF/api-key.properties"})
+@PropertySource({"classpath:/META-INF/api-key.properties",
+        "classpath:/META-INF/admin.properties"})
 public class RootConfiguration {
 
 }

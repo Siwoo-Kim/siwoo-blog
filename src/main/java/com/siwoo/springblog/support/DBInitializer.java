@@ -1,9 +1,13 @@
 package com.siwoo.springblog.support;
 
+import com.siwoo.springblog.domain.Blogger;
+import com.siwoo.springblog.domain.BloggerRole;
 import com.siwoo.springblog.repository.CategoryRepository;
 import com.siwoo.springblog.repository.DomainRepository;
 import com.siwoo.springblog.repository.ParagraphRepository;
 import com.siwoo.springblog.repository.TopicRepository;
+import com.siwoo.springblog.service.BloggerService;
+import com.siwoo.springblog.service.NoticeService;
 import com.siwoo.springblog.service.TopicService;
 import com.siwoo.springblog.support.fixture.DomainFixtureProvider;
 import com.siwoo.springblog.support.fixture.FixtureProvider;
@@ -31,6 +35,13 @@ public class DBInitializer implements CommandLineRunner {
     TopicService topicService;
     @Autowired
     ParagraphRepository paragraphRepository;
+    @Autowired
+    BloggerService bloggerService;
+    @Autowired
+    NoticeService noticeService;
+
+    @Autowired
+    AdminProperties adminProperties;
 
     @Override
     public void run(String... args) throws Exception {
@@ -39,6 +50,19 @@ public class DBInitializer implements CommandLineRunner {
         categoryRepository.saveAll(FixtureProvider.categories());
         FixtureProvider.topics(categoryRepository).forEach(topic -> topicService.save(topic));
         paragraphRepository.saveAll(FixtureProvider.paragraphs(topicRepository));
-        //topicRepository.findAll().stream().forEach(System.out::println);
+
+        Blogger admin = new Blogger();
+        admin.setEmail(adminProperties.getEmail());
+        admin.setPassword(adminProperties.getPassword());
+        admin.setName(adminProperties.getName());
+        admin.setNickName(adminProperties.getNickName());
+        admin.setAvatarImgName("siwoo-img.jpg");
+        admin.addRole(new BloggerRole(BloggerRole.Role.ADMIN));
+        admin.addRole(new BloggerRole(BloggerRole.Role.GUEST));
+        bloggerService.join(admin);
+
+        FixtureProvider.notices(admin)
+                .forEach(notice -> noticeService.announce(notice));
+
     }
 }
