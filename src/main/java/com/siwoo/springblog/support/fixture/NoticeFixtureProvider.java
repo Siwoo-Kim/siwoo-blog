@@ -36,6 +36,14 @@ public class NoticeFixtureProvider {
         notice.setBlogger(blogger);
         notices.add(notice);
 
+        notice = new Notice();
+        notice.setTitle("Social Login Feature Now Available!");
+        notice.setContent("You can login by another service via Oauth2 token, such as Github, Google Facebook. ");
+        notice.setBasicDate(new BasicDate(LocalDate.of(2018,5,11), null));
+        notice.setBlogger(blogger);
+        notice.setBlogger(blogger);
+        notices.add(notice);
+
         return notices;
     }
 }

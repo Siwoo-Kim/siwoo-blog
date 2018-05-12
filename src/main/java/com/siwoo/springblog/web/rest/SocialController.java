@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,11 +26,28 @@ import java.util.List;
  * @since 2018-05-11 오후 4:07
  **/
 
+
 @RestController
 @RequestMapping("/rest/social")
 public class SocialController {
 
-    @Autowired OAuth2AuthorizedClientService authServcie;
+    @Autowired
+    OAuth2AuthorizedClientService authServcie;
+    @Resource(name = "socials")
+    List<Social> socials;
+    @Autowired
+    OAuth2AuthorizedClientService service;
+
+    @GetMapping("/list")
+    public SocialWrapper socials(HttpServletRequest request) {
+        String hostURL = ControllerSupporter.hostPathString(request);
+        return new SocialWrapper(hostURL, socials);
+    }
+
+    @GetMapping
+    public Principal info(Principal principal) {
+        return principal;
+    }
 
     @Data
     public static class SocialWrapper {
@@ -41,30 +59,6 @@ public class SocialController {
             this.socials = socials;
         }
     }
-
-    @Resource(name = "socials")
-    List<Social> socials;
-
-    @GetMapping("/list")
-    public SocialWrapper socials(HttpServletRequest request) {
-        String hostURL = ControllerSupporter.hostPathString(request);
-        System.out.println(hostURL);
-        return new SocialWrapper(hostURL, socials);
-    }
-
-    @Autowired
-    OAuth2AuthorizedClientService service;
-
-    @GetMapping
-    public Principal info(Principal principal) {
-//        OAuth2AuthorizedClient client = this.authServcie
-//                .loadAuthorizedClient(authentication.getAuthorizedClientRegistrationId(), authentication.getName());
-//        return client;
-//
-        return principal;
-    }
-
-
 
 
 }

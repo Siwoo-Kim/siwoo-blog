@@ -147,7 +147,7 @@ module.exports = "\r\nmat-card-content, mat-sidenav-content, mat-sidenav-contain
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n  <mat-sidenav mode=\"over\" align=\"start\" #sidenav>\n    Sidenav content\n  </mat-sidenav>\n  <!-- Body -->\n  <mat-sidenav-content>\n    <!--Header-->\n    <app-header (sidenavChange)=\"sidenav.toggle()\"></app-header>\n    <!--Locator-->\n    <app-locator></app-locator>\n\n    <!--Main-->\n    <main>\n      <router-outlet></router-outlet>\n    </main>\n    <app-footer></app-footer>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n"
+module.exports = "<mat-sidenav-container>\n  <mat-sidenav mode=\"over\" align=\"start\" #sidenav>\n    <app-sidebar (closeSidebar)=\"sidenav.close()\"></app-sidebar>\n\n  </mat-sidenav>\n  <!-- Body -->\n  <mat-sidenav-content>\n    <!--Header-->\n    <app-header (sidenavChange)=\"sidenav.toggle()\"></app-header>\n    <!--Locator-->\n    <app-locator></app-locator>\n\n    <!--Main-->\n    <main>\n      <router-outlet></router-outlet>\n    </main>\n    <app-footer></app-footer>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n"
 
 /***/ }),
 
@@ -1415,67 +1415,10 @@ var XhrInterceptor = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/login/login.module.ts":
-/*!***************************************!*\
-  !*** ./src/app/login/login.module.ts ***!
-  \***************************************/
-/*! exports provided: LoginModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginModule", function() { return LoginModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login/login.component.ts");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/service.module */ "./src/app/service/service.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-var LoginModule = /** @class */ (function () {
-    function LoginModule() {
-    }
-    LoginModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
-                _service_service_module__WEBPACK_IMPORTED_MODULE_4__["ServiceModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"],
-            ],
-            declarations: [
-                _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
-            ],
-            exports: [
-                _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"],
-            ]
-        })
-    ], LoginModule);
-    return LoginModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/login/login/login.component.css":
-/*!*************************************************!*\
-  !*** ./src/app/login/login/login.component.css ***!
-  \*************************************************/
+/***/ "./src/app/login/login.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/login/login.component.css ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1483,21 +1426,21 @@ module.exports = "\r\nmat-card {\r\n  height: 600px;\r\n}\r\n\r\nmat-form-field 
 
 /***/ }),
 
-/***/ "./src/app/login/login/login.component.html":
-/*!**************************************************!*\
-  !*** ./src/app/login/login/login.component.html ***!
-  \**************************************************/
+/***/ "./src/app/login/login.component.html":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.html ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center center\">\n  <mat-tab-group>\n    <mat-tab label=\"Blogger Login\">\n      <mat-card fxFlex=\"400px\">\n        <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n          <mat-card-title>\n            <h1>\n              Login\n              <mat-icon [color]=\"form.hasError('credentials') ? 'accent' : 'primary'\">favorite</mat-icon>\n            </h1>\n            <mat-divider [inset]=\"true\"></mat-divider>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content>\n          <form [formGroup]=\"form\">\n            <mat-form-field>\n              <span matPrefix>* &nbsp;</span>\n              <input type=\"email\"\n                     formControlName=\"email\"\n                     #emailInput\n                     required\n                     email\n                     matInput\n                     placeholder=\"Email\">\n              <mat-hint align=\"start\">Enter your email</mat-hint>\n              <mat-hint align=\"end\">{{ emailInput.value.length }} / 40</mat-hint>\n              <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n              <mat-icon [matBadgeHidden]=\"!form.hasError('credentials')\"\n                        matBadge=\"!!\"\n                        matBadgeColor=\"accent\"\n                        matBadgeOverlap=\"true\"\n                        matSuffix>mail\n              </mat-icon>\n            </mat-form-field>\n            <mat-form-field class=\"example-full-width\">\n              <span matPrefix>* &nbsp;</span>\n              <input type=\"password\"\n                     formControlName=\"password\"\n                     #passwordInput\n                     minlength=\"4\"\n                     required\n                     matInput\n                     placeholder=\"Password\">\n              <mat-hint align=\"start\">Enter your password</mat-hint>\n              <mat-hint align=\"end\">{{ passwordInput.value.length }} / 40</mat-hint>\n              <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n              <mat-icon matSuffix\n                        [matBadgeHidden]=\"!form.hasError('credentials')\"\n                        matBadge=\"!!\"\n                        matBadgeColor=\"accent\"\n                        matBadgeOverlap=\"true\">vpn_key\n              </mat-icon>\n            </mat-form-field>\n          </form>\n        </mat-card-content>\n        <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button (click)=\"login(emailInput.value, passwordInput.value)\" color=\"primary\">Login</button>\n          <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n        </mat-card-footer>\n      </mat-card>\n    </mat-tab>\n    <mat-tab label=\"Social Login\">\n      <mat-card fxFlex=\"400px\">\n        <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n          <mat-card-title>\n            <h1>\n              Social Login\n              <mat-icon color=\"primary\" svgIcon=\"messenger\">favorite</mat-icon>\n            </h1>\n            <mat-divider [inset]=\"true\"></mat-divider>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content fxLayout=\"row no-wrap\" fxLayoutAlign=\"space-evenly\" style=\"min-height: 150px;\">\n          <a mat-raised-button\n             *ngFor=\"let social of socials?.socials\"\n             [href]=\"socials.hostURL + social.loginPage\"\n             style=\"height: 40px;\" fxFlex=\"40%\">\n            <mat-icon [svgIcon]=\"social.imgName\"></mat-icon>\n            {{ social.name }}\n          </a>\n        </mat-card-content>\n        <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n        </mat-card-footer>\n      </mat-card>\n    </mat-tab>\n  </mat-tab-group>\n\n</div>\n"
+module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center center\">\n  <mat-tab-group>\n    <mat-tab label=\"Blogger Login\">\n      <mat-card fxFlex=\"400px\">\n        <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n          <mat-card-title>\n            <h1>\n              Login\n              <mat-icon [color]=\"form.hasError('credentials') ? 'accent' : 'primary'\">favorite</mat-icon>\n            </h1>\n            <mat-divider [inset]=\"true\"></mat-divider>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content>\n          <form [formGroup]=\"form\">\n            <mat-form-field>\n              <span matPrefix>* &nbsp;</span>\n              <input type=\"email\"\n                     formControlName=\"email\"\n                     #emailInput\n                     required\n                     email\n                     matInput\n                     (keydown.enter)=\"login(emailInput.value, passwordInput.value)\"\n                     placeholder=\"Email\">\n              <mat-hint align=\"start\">Enter your email</mat-hint>\n              <mat-hint align=\"end\">{{ emailInput.value.length }} / 40</mat-hint>\n              <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n              <mat-icon [matBadgeHidden]=\"!form.hasError('credentials')\"\n                        matBadge=\"!!\"\n                        matBadgeColor=\"accent\"\n                        matBadgeOverlap=\"true\"\n                        matSuffix>mail\n              </mat-icon>\n            </mat-form-field>\n            <mat-form-field class=\"example-full-width\">\n              <span matPrefix>* &nbsp;</span>\n              <input type=\"password\"\n                     formControlName=\"password\"\n                     #passwordInput\n                     minlength=\"4\"\n                     required\n                     matInput\n                     (keydown.enter)=\"login(emailInput.value, passwordInput.value)\"\n                     placeholder=\"Password\">\n              <mat-hint align=\"start\">Enter your password</mat-hint>\n              <mat-hint align=\"end\">{{ passwordInput.value.length }} / 40</mat-hint>\n              <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n              <mat-icon matSuffix\n                        [matBadgeHidden]=\"!form.hasError('credentials')\"\n                        matBadge=\"!!\"\n                        matBadgeColor=\"accent\"\n                        matBadgeOverlap=\"true\">vpn_key\n              </mat-icon>\n            </mat-form-field>\n          </form>\n        </mat-card-content>\n        <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button\n                  (click)=\"login(emailInput.value, passwordInput.value)\"\n                  (keydown.enter)=\"login(emailInput.value, passwordInput.value)\"\n                  color=\"primary\">Login\n          </button>\n          <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n        </mat-card-footer>\n      </mat-card>\n    </mat-tab>\n    <mat-tab label=\"Social Login\">\n      <app-social-login fxFlex=\"400px\"></app-social-login>\n    </mat-tab>\n  </mat-tab-group>\n\n</div>\n"
 
 /***/ }),
 
-/***/ "./src/app/login/login/login.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/login/login/login.component.ts ***!
-  \************************************************/
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
 /*! exports provided: LoginComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1505,11 +1448,11 @@ module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center cente
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/auth-service.service */ "./src/app/service/auth-service.service.ts");
-/* harmony import */ var _model_blogger_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../model/blogger.model */ "./src/app/model/blogger.model.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/auth-service.service */ "./src/app/service/auth-service.service.ts");
+/* harmony import */ var _model_blogger_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../model/blogger.model */ "./src/app/model/blogger.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1531,10 +1474,9 @@ var LoginComponent = /** @class */ (function () {
         this.router = router;
         this.location = location;
         this.fb = fb;
-        this.form = this.build();
     }
     LoginComponent.prototype.ngOnInit = function () {
-        this.getSocials();
+        this.form = this.build();
     };
     LoginComponent.prototype.build = function () {
         return this.fb.group({
@@ -1545,36 +1487,166 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.authService
-            .authenticate(new _model_blogger_model__WEBPACK_IMPORTED_MODULE_2__["Login"](this.form.value['email'], this.form.value['password']))
+            .authenticate(new _model_blogger_model__WEBPACK_IMPORTED_MODULE_5__["Login"](this.form.value['email'], this.form.value['password']))
             .subscribe(function (authenticate) {
-            console.log(authenticate);
             if (authenticate) {
                 _this.router.navigateByUrl('/');
             }
         }, function (error) {
             _this.form.setErrors({ credentials: true });
-            console.log(_this.form.hasError('credentials'));
         });
     };
     LoginComponent.prototype.goback = function () {
         this.location.back();
     };
-    LoginComponent.prototype.getSocials = function () {
-        var _this = this;
-        this.authService.socials().subscribe(function (socials) { return _this.socials = socials; });
-    };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-login',
-            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login/login.component.html"),
-            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login/login.component.css")]
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_service_auth_service_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"],
+        __metadata("design:paramtypes", [_service_auth_service_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_1__["Location"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/login.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/login/login.module.ts ***!
+  \***************************************/
+/*! exports provided: LoginModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginModule", function() { return LoginModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/service.module */ "./src/app/service/service.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _social_login_social_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./social-login/social-login.component */ "./src/app/login/social-login/social-login.component.ts");
+/* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./login.component */ "./src/app/login/login.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var LoginModule = /** @class */ (function () {
+    function LoginModule() {
+    }
+    LoginModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"],
+                _service_service_module__WEBPACK_IMPORTED_MODULE_3__["ServiceModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"],
+            ],
+            declarations: [
+                _login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
+                _social_login_social_login_component__WEBPACK_IMPORTED_MODULE_6__["SocialLoginComponent"]
+            ],
+            exports: []
+        })
+    ], LoginModule);
+    return LoginModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/social-login/social-login.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/login/social-login/social-login.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\nmat-card {\r\n  height: 600px;\r\n}\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: block;\r\n  margin: 20px;\r\n}\r\n\r\nmat-card-footer {\r\n  margin-top: 55px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\nmat-card-header {\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.container {\r\n  height: 800px;\r\n}\r\n\r\nmat-card {\r\n  padding: 40px;\r\n}\r\n\r\nmat-card-header h1 {\r\n  font-family: Lato, Roboto;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  line-height: 32px;\r\n  margin: 15px;\r\n}\r\n\r\nmat-card-content {\r\n  min-height: 150px;\r\n}\r\n\r\nmat-card-content a {\r\n  height: 40px;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/login/social-login/social-login.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/login/social-login/social-login.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-card fxFlex=\"400px\">\n  <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n    <mat-card-title>\n      <h1>\n        Social Login\n        <mat-icon color=\"primary\" svgIcon=\"messenger\">favorite</mat-icon>\n      </h1>\n      <mat-divider [inset]=\"true\"></mat-divider>\n    </mat-card-title>\n  </mat-card-header>\n  <mat-card-content fxLayout=\"row no-wrap\"\n                    fxLayoutAlign=\"space-evenly\">\n    <a mat-raised-button\n       *ngFor=\"let social of socials?.socials\"\n       [href]=\"socials.hostURL + social.loginPage\"\n       fxFlex=\"40%\">\n      <mat-icon [svgIcon]=\"social.imgName\"></mat-icon>\n      {{ social.name }}\n    </a>\n  </mat-card-content>\n  <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n    <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n  </mat-card-footer>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/login/social-login/social-login.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/login/social-login/social-login.component.ts ***!
+  \**************************************************************/
+/*! exports provided: SocialLoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SocialLoginComponent", function() { return SocialLoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/auth-service.service */ "./src/app/service/auth-service.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SocialLoginComponent = /** @class */ (function () {
+    function SocialLoginComponent(authService, location) {
+        this.authService = authService;
+        this.location = location;
+    }
+    SocialLoginComponent.prototype.ngOnInit = function () {
+        this.getSocials();
+    };
+    SocialLoginComponent.prototype.getSocials = function () {
+        var _this = this;
+        this.authService.socials().subscribe(function (socials) { return _this.socials = socials; });
+    };
+    SocialLoginComponent.prototype.goback = function () {
+        this.location.back();
+    };
+    SocialLoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-social-login',
+            template: __webpack_require__(/*! ./social-login.component.html */ "./src/app/login/social-login/social-login.component.html"),
+            styles: [__webpack_require__(/*! ./social-login.component.css */ "./src/app/login/social-login/social-login.component.css")]
+        }),
+        __metadata("design:paramtypes", [_service_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_1__["Location"]])
+    ], SocialLoginComponent);
+    return SocialLoginComponent;
 }());
 
 
@@ -2283,7 +2355,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _main_bootstrap_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/bootstrap.component */ "./src/app/main/bootstrap.component.ts");
-/* harmony import */ var _login_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login/login.component */ "./src/app/login/login/login.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _about_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about-me/about-me.component */ "./src/app/about/about-me/about-me.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2299,7 +2371,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var routes = [
     { path: 'main', component: _main_bootstrap_component__WEBPACK_IMPORTED_MODULE_2__["BootstrapComponent"] },
     { path: '', redirectTo: 'main', pathMatch: 'full' },
-    { path: 'login', component: _login_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'about', component: _about_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_4__["AboutMeComponent"] },
 ];
 var RoutingModule = /** @class */ (function () {
@@ -2361,6 +2433,8 @@ var AuthService = /** @class */ (function () {
         this.snackBar = snackBar;
         this.router = router;
         this.socialUrl = '/social';
+        this.logoutUrl = '/rest/logout';
+        this.loginUrl = '/rest/login';
         this.authenticated = false;
     }
     AuthService.prototype.socials = function () {
@@ -2370,44 +2444,41 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         return this.dataSource.get("" + this.socialUrl).subscribe(function (response) {
             if (response['name']) {
-                _this.snackBar.open('Welcome Back! You are logged in by Social Login', null, {
-                    duration: 2000,
-                    horizontalPosition: 'end',
-                    verticalPosition: 'top'
-                });
-                _this.authenticated = true;
+                _this.sendMessage('Welcome Back! You are logged in by Social Login');
             }
-            else {
-                _this.authenticated = false;
-            }
+            _this.setAuthenticated(response);
         });
+    };
+    AuthService.prototype.setAuthenticated = function (response) {
+        if (response['name']) {
+            this.authenticated = true;
+        }
+        else {
+            this.authenticated = false;
+        }
     };
     AuthService.prototype.authenticate = function (login) {
         var _this = this;
-        return this.http.get('/rest/login', {
+        return this.http.get(this.loginUrl, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]()
                 .set("authorization", "Basic " + btoa(login.email + ":" + login.password))
         })
-            .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (response) {
-            if (response['name']) {
-                _this.authenticated = true;
-            }
-            else {
-                _this.authenticated = false;
-            }
-        }), Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function () { return _this.authenticated; }));
+            .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (response) { return _this.setAuthenticated(response); }), Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function () { return _this.authenticated; }));
     };
     AuthService.prototype.logout = function () {
         var _this = this;
-        return this.http.post('/rest/logout', {})
+        return this.http.post(this.logoutUrl, {})
             .subscribe(function () {
             _this.authenticated = false;
             _this.router.navigateByUrl('/');
-            _this.snackBar.open('Logout Success!', null, {
-                duration: 2000,
-                horizontalPosition: 'end',
-                verticalPosition: 'top'
-            });
+            _this.sendMessage('Logout Success!');
+        });
+    };
+    AuthService.prototype.sendMessage = function (message) {
+        this.snackBar.open(message, null, {
+            duration: 2000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top'
         });
     };
     AuthService = __decorate([
@@ -3083,7 +3154,7 @@ module.exports = ":host {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\"\n             [ngStyle]=\"{backgroundColor : searchHidden ? '' : '#333' }\" >\n  <!--Start-->\n  <div class=\"start\">\n    <!--Sidenav Opener-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            (click)=\"sidenavChange.emit()\">\n      <mat-icon>list</mat-icon>\n    </button>\n    <!--Home-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/\" >\n      <mat-icon>home</mat-icon>\n    </button>\n    <!--Category-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/category\">\n      <mat-icon>widgets</mat-icon>\n    </button>\n    <button mat-icon-button\n            routerLink=\"/about\"\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>help</mat-icon>\n    </button>\n  </div>\n\n\n  <!--Search Field-->\n  <div class=\"end\">\n    <button mat-icon-button matTooltip=\"Login!\"\n            *ngIf=\"!authService.authenticated\"\n            [routerLink]=\"['/login']\"\n            style=\"margin-right: 8px\">\n      <mat-icon svgIcon=\"toggle_on\"></mat-icon>\n    </button>\n    <button mat-icon-button matTooltip=\"Logout!\"\n            *ngIf=\"authService.authenticated\"\n            (click)=\"logout()\"\n            style=\"margin-right: 8px\">\n      <mat-icon >exit_to_app</mat-icon>\n    </button>\n    <mat-form-field class=\"search-field\" color=\"primary\"\n                    [color]=\"searchHidden ? 'primary' : 'accent'\">\n      <input matInput\n             [formControl]=\"searchInput\"\n             (focus)=\"searchHidden = false\"\n             (blur)=\"searchHidden = true\"\n             placeholder=\"Search\"\n             maxlength=\"15\">\n      <mat-label>\n        <mat-icon [color]=\"searchHidden ? '' : 'accent'\" >search</mat-icon>\n      </mat-label>\n      <mat-icon matSuffix\n                [color]=\"searchHidden ? '' : 'accent'\">\n        {{ searchHidden ? 'sentiment_dissatisfied' : 'sentiment_very_satisfied' }}\n      </mat-icon>\n      <mat-hint align=\"start\" >Enter search Term</mat-hint>\n      <mat-hint align=\"end\">{{ searchInput.value.length }} / 15</mat-hint>\n    </mat-form-field>\n  </div>\n</mat-toolbar>\n<mat-toolbar class=\"search\"\n             *ngIf=\"!searchHidden\">\n  <div class=\"container\"\n       *ngIf=\"hasResult()\"\n       fxLayout\n       fxLayoutAlign=\"space-evenly start\" >\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let category of categories\"\n         [routerLink]=\"['/category', category.name]\">\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          {{ category?.name }}\n        </div>\n      </a>\n    </div>\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let topic of topics\"\n         [routerLink]=\"['/category',topic.category.name,topic.name]\"\n         [queryParams]=\"{topicId: topic.id}\">\n        <i class=\"code icon\"></i>\n        <div class=\"content\">\n          {{ topic?.name }}\n        </div>\n      </a>\n    </div>\n  </div>\n  <div class=\"container\" fxLayout\n       fxLayoutAlign=\"center\"\n       *ngIf=\"!hasResult()\">\n    <div class=\"ui list\">\n      <div class=\"item\" >\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          No Result\n        </div>\n      </div>\n    </div>\n  </div>\n\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar color=\"primary\"\n             [ngStyle]=\"{backgroundColor : searchHidden ? '' : '#333' }\" >\n  <!--Start-->\n  <div class=\"start\" fxHide.lt-sm=\"true\">\n    <!--Sidenav Opener-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            (click)=\"sidenavChange.emit()\">\n      <mat-icon>list</mat-icon>\n    </button>\n    <!--Home-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/\" >\n      <mat-icon>home</mat-icon>\n    </button>\n    <!--Category-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/category\">\n      <mat-icon>widgets</mat-icon>\n    </button>\n    <button mat-icon-button\n            routerLink=\"/about\"\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>help</mat-icon>\n    </button>\n  </div>\n\n\n  <!--Search Field-->\n  <div class=\"end\">\n    <button mat-icon-button matTooltip=\"Login!\"\n            *ngIf=\"!authService.authenticated\"\n            [routerLink]=\"['/login']\"\n            style=\"margin-right: 8px\">\n      <mat-icon svgIcon=\"toggle_on\"></mat-icon>\n    </button>\n    <button mat-icon-button matTooltip=\"Logout!\"\n            *ngIf=\"authService.authenticated\"\n            (click)=\"logout()\"\n            style=\"margin-right: 8px\">\n      <mat-icon >exit_to_app</mat-icon>\n    </button>\n    <mat-form-field class=\"search-field\" color=\"primary\"\n                    [color]=\"searchHidden ? 'primary' : 'accent'\">\n      <input matInput\n             [formControl]=\"searchInput\"\n             (focus)=\"searchHidden = false\"\n             (blur)=\"searchHidden = true\"\n             placeholder=\"Search\"\n             maxlength=\"15\">\n      <mat-label>\n        <mat-icon [color]=\"searchHidden ? '' : 'accent'\" >search</mat-icon>\n      </mat-label>\n      <mat-icon matSuffix\n                [color]=\"searchHidden ? '' : 'accent'\">\n        {{ searchHidden ? 'sentiment_dissatisfied' : 'sentiment_very_satisfied' }}\n      </mat-icon>\n      <mat-hint align=\"start\" >Enter search Term</mat-hint>\n      <mat-hint align=\"end\">{{ searchInput.value.length }} / 15</mat-hint>\n    </mat-form-field>\n  </div>\n</mat-toolbar>\n<mat-toolbar class=\"search\"\n             *ngIf=\"!searchHidden\">\n  <div class=\"container\"\n       *ngIf=\"hasResult()\"\n       fxLayout\n       fxLayoutAlign=\"space-evenly start\" >\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let category of categories\"\n         [routerLink]=\"['/category', category.name]\">\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          {{ category?.name }}\n        </div>\n      </a>\n    </div>\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let topic of topics\"\n         [routerLink]=\"['/category',topic.category.name,topic.name]\"\n         [queryParams]=\"{topicId: topic.id}\">\n        <i class=\"code icon\"></i>\n        <div class=\"content\">\n          {{ topic?.name }}\n        </div>\n      </a>\n    </div>\n  </div>\n  <div class=\"container\" fxLayout\n       fxLayoutAlign=\"center\"\n       *ngIf=\"!hasResult()\">\n    <div class=\"ui list\">\n      <div class=\"item\" >\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          No Result\n        </div>\n      </div>\n    </div>\n  </div>\n\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -3371,12 +3442,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_domain_about_domain_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./about-domain/about-domain.component */ "./src/app/shared/about-domain/about-domain.component.ts");
 /* harmony import */ var _youtube_youtube_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./youtube/youtube.component */ "./src/app/shared/youtube/youtube.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/shared/sidebar/sidebar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -3398,6 +3471,14 @@ var SharedModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"],
                 _material_module__WEBPACK_IMPORTED_MODULE_1__["MaterialModule"],
             ],
+            declarations: [
+                _header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
+                _locator_locator_component__WEBPACK_IMPORTED_MODULE_5__["LocatorComponent"],
+                _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
+                _about_domain_about_domain_component__WEBPACK_IMPORTED_MODULE_7__["AboutDomainComponent"],
+                _youtube_youtube_component__WEBPACK_IMPORTED_MODULE_8__["YoutubeComponent"],
+                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_10__["SidebarComponent"],
+            ],
             exports: [
                 _material_module__WEBPACK_IMPORTED_MODULE_1__["MaterialModule"],
                 _header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
@@ -3405,17 +3486,79 @@ var SharedModule = /** @class */ (function () {
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
                 _about_domain_about_domain_component__WEBPACK_IMPORTED_MODULE_7__["AboutDomainComponent"],
                 _youtube_youtube_component__WEBPACK_IMPORTED_MODULE_8__["YoutubeComponent"],
-            ],
-            declarations: [
-                _header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
-                _locator_locator_component__WEBPACK_IMPORTED_MODULE_5__["LocatorComponent"],
-                _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
-                _about_domain_about_domain_component__WEBPACK_IMPORTED_MODULE_7__["AboutDomainComponent"],
-                _youtube_youtube_component__WEBPACK_IMPORTED_MODULE_8__["YoutubeComponent"],
+                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_10__["SidebarComponent"],
             ]
         })
     ], SharedModule);
     return SharedModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/sidebar.component.css":
+/*!******************************************************!*\
+  !*** ./src/app/shared/sidebar/sidebar.component.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n.nav-text {\r\n  font: 15px Roboto,\"Helvetica Neue\",sans-serif;\r\n  padding-left: 50px;\r\n}\r\n\r\n:host {\r\n  margin-top: 5px;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/sidebar.component.html":
+/*!*******************************************************!*\
+  !*** ./src/app/shared/sidebar/sidebar.component.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<button mat-button class=\"btn-block\"\n        fxLayout\n        mat-raised-button\n        fxLayoutAlign=\"space-between\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/login\" >\n  <mat-icon color=\"primary\" fxFlex svgIcon=\"messenger\" ></mat-icon>\n  <span class=\"nav-text\" fxFlex >Login <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/main\" >\n  <mat-icon color=\"primary\" >home</mat-icon>\n  <span class=\"nav-text\" >Home <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/login\" >\n  <mat-icon color=\"primary\" >widgets</mat-icon>\n  <span class=\"nav-text\" >Category <i class=\"icon ui angle right\"></i></span>\n</button>\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/sidebar/sidebar.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/sidebar/sidebar.component.ts ***!
+  \*****************************************************/
+/*! exports provided: SidebarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SidebarComponent = /** @class */ (function () {
+    function SidebarComponent() {
+        this.closeSidebar = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    SidebarComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], SidebarComponent.prototype, "closeSidebar", void 0);
+    SidebarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-sidebar',
+            template: __webpack_require__(/*! ./sidebar.component.html */ "./src/app/shared/sidebar/sidebar.component.html"),
+            styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/shared/sidebar/sidebar.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SidebarComponent);
+    return SidebarComponent;
 }());
 
 

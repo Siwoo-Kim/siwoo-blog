@@ -29,7 +29,6 @@ public class FixtureProvider {
 
     public static List<Topic> topics(CategoryRepository categoryRepository) {
         List topics = new ArrayList();
-
         List springTopics = TopicFixtureProvider.springTopics(categoryRepository.findByName("spring"));
         List hibernateTopics = TopicFixtureProvider.hibernateTopics(categoryRepository.findByName("hibernate"));
 
