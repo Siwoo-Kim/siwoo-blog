@@ -293,7 +293,7 @@ var AppModule = /** @class */ (function () {
                 _about_about_module__WEBPACK_IMPORTED_MODULE_12__["AboutModule"],
             ],
             providers: [
-                { provide: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["BACKEND_URL_TOKEN"], useValue: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["DEV_BACKEND_URL"] },
+                { provide: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["BACKEND_URL_TOKEN"], useValue: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["PROD_BACKEND_URL"] },
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })

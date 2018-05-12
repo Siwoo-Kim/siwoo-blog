@@ -28,11 +28,13 @@ public class HomeController {
     @GetMapping
     public String home(HttpServletResponse response, HttpServletRequest request) throws IOException {
         System.out.println(profile);
+
         if("dev".equals(profile)) {
             response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + 4200 + request.getContextPath() + "/");
             return null;
         }
-        return "index";
+
+        return "index.html";
     }
 
 }
