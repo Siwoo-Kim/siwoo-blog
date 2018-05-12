@@ -23,6 +23,112 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/about/about-me/about-me.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/about/about-me/about-me.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/about/about-me/about-me.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/about/about-me/about-me.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  about-me works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/about/about-me/about-me.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/about/about-me/about-me.component.ts ***!
+  \******************************************************/
+/*! exports provided: AboutMeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutMeComponent", function() { return AboutMeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutMeComponent = /** @class */ (function () {
+    function AboutMeComponent() {
+    }
+    AboutMeComponent.prototype.ngOnInit = function () {
+    };
+    AboutMeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-about-me',
+            template: __webpack_require__(/*! ./about-me.component.html */ "./src/app/about/about-me/about-me.component.html"),
+            styles: [__webpack_require__(/*! ./about-me.component.css */ "./src/app/about/about-me/about-me.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AboutMeComponent);
+    return AboutMeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/about/about.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/about/about.module.ts ***!
+  \***************************************/
+/*! exports provided: AboutModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutModule", function() { return AboutModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./about-me/about-me.component */ "./src/app/about/about-me/about-me.component.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var AboutModule = /** @class */ (function () {
+    function AboutModule() {
+    }
+    AboutModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
+            ],
+            declarations: [_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_2__["AboutMeComponent"]]
+        })
+    ], AboutModule);
+    return AboutModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -94,6 +200,15 @@ var AppComponent = /** @class */ (function () {
             .addSvgIcon('youtube-img', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/domain/youtube-img.svg'));
         mdIconRegistry
             .addSvgIcon('toggle_on', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/svg/baseline-toggle_on.svg'));
+        mdIconRegistry
+            .addSvgIcon('google-img', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/svg/google-img.svg'));
+        mdIconRegistry
+            .addSvgIcon('facebook-img', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/svg/facebook-img.svg'));
+        mdIconRegistry
+            .addSvgIcon('github-img', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/svg/github-img.svg'));
+        mdIconRegistry
+            .addSvgIcon('messenger', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/svg/messenger.svg'));
+        authService.checkSocialLogin();
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -135,12 +250,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_tokens__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.tokens */ "./src/app/app.tokens.ts");
 /* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./service/service.module */ "./src/app/service/service.module.ts");
 /* harmony import */ var _login_login_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./login/login.module */ "./src/app/login/login.module.ts");
+/* harmony import */ var _about_about_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./about/about.module */ "./src/app/about/about.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -173,9 +290,10 @@ var AppModule = /** @class */ (function () {
                 _main_main_module__WEBPACK_IMPORTED_MODULE_6__["MainModule"],
                 _login_login_module__WEBPACK_IMPORTED_MODULE_11__["LoginModule"],
                 _category_category_module__WEBPACK_IMPORTED_MODULE_7__["CategoryModule"],
+                _about_about_module__WEBPACK_IMPORTED_MODULE_12__["AboutModule"],
             ],
             providers: [
-                { provide: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["BACKEND_URL_TOKEN"], useValue: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["PROD_BACKEND_URL"] },
+                { provide: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["BACKEND_URL_TOKEN"], useValue: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["DEV_BACKEND_URL"] },
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -1361,7 +1479,7 @@ var LoginModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: block;\r\n  margin: 20px;\r\n}\r\n\r\nmat-card-footer {\r\n  margin-top: 55px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\nmat-card-header {\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.container {\r\n  height: 800px;\r\n}\r\n\r\nmat-card {\r\n  padding: 40px;\r\n}\r\n\r\nmat-card-header h1 {\r\n  font-family: Lato, Roboto;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  line-height: 32px;\r\n  margin: 15px;\r\n}\r\n"
+module.exports = "\r\nmat-card {\r\n  height: 600px;\r\n}\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: block;\r\n  margin: 20px;\r\n}\r\n\r\nmat-card-footer {\r\n  margin-top: 55px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\nmat-card-header {\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.container {\r\n  height: 800px;\r\n}\r\n\r\nmat-card {\r\n  padding: 40px;\r\n}\r\n\r\nmat-card-header h1 {\r\n  font-family: Lato, Roboto;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  line-height: 32px;\r\n  margin: 15px;\r\n}\r\n"
 
 /***/ }),
 
@@ -1372,7 +1490,7 @@ module.exports = "\r\n\r\nmat-form-field {\r\n  min-width: 250px;\r\n  display: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center center\">\n  <mat-card fxFlex=\"400px\">\n    <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n      <mat-card-title>\n        <h1>\n          Login\n          <mat-icon [color]=\"form.hasError('credentials') ? 'accent' : 'primary'\">favorite</mat-icon>\n        </h1>\n        <mat-divider [inset]=\"true\"></mat-divider>\n      </mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <form [formGroup]=\"form\">\n        <mat-form-field>\n          <span matPrefix>* &nbsp;</span>\n          <input type=\"email\"\n                 formControlName=\"email\"\n                 #emailInput\n                 required\n                 email\n                 matInput\n                 placeholder=\"Email\">\n          <mat-hint align=\"start\">Enter your email</mat-hint>\n          <mat-hint align=\"end\">{{ emailInput.value.length }} / 40</mat-hint>\n          <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n          <mat-icon [matBadgeHidden]=\"!form.hasError('credentials')\"\n                    matBadge=\"!!\"\n                    matBadgeColor=\"accent\"\n                    matBadgeOverlap=\"true\"\n                    matSuffix>mail\n          </mat-icon>\n        </mat-form-field>\n        <mat-form-field class=\"example-full-width\">\n          <span matPrefix>* &nbsp;</span>\n          <input type=\"password\"\n                 formControlName=\"password\"\n                 #passwordInput\n                 minlength=\"4\"\n                 required\n                 matInput\n                 placeholder=\"Password\">\n          <mat-hint align=\"start\">Enter your password</mat-hint>\n          <mat-hint align=\"end\">{{ passwordInput.value.length }} / 40</mat-hint>\n          <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n          <mat-icon matSuffix\n                    [matBadgeHidden]=\"!form.hasError('credentials')\"\n                    matBadge=\"!!\"\n                    matBadgeColor=\"accent\"\n                    matBadgeOverlap=\"true\">vpn_key\n          </mat-icon>\n        </mat-form-field>\n      </form>\n    </mat-card-content>\n    <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n      <button mat-raised-button (click)=\"login(emailInput.value, passwordInput.value)\" color=\"primary\">Login</button>\n      <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n    </mat-card-footer>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center center\">\n  <mat-tab-group>\n    <mat-tab label=\"Blogger Login\">\n      <mat-card fxFlex=\"400px\">\n        <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n          <mat-card-title>\n            <h1>\n              Login\n              <mat-icon [color]=\"form.hasError('credentials') ? 'accent' : 'primary'\">favorite</mat-icon>\n            </h1>\n            <mat-divider [inset]=\"true\"></mat-divider>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content>\n          <form [formGroup]=\"form\">\n            <mat-form-field>\n              <span matPrefix>* &nbsp;</span>\n              <input type=\"email\"\n                     formControlName=\"email\"\n                     #emailInput\n                     required\n                     email\n                     matInput\n                     placeholder=\"Email\">\n              <mat-hint align=\"start\">Enter your email</mat-hint>\n              <mat-hint align=\"end\">{{ emailInput.value.length }} / 40</mat-hint>\n              <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n              <mat-icon [matBadgeHidden]=\"!form.hasError('credentials')\"\n                        matBadge=\"!!\"\n                        matBadgeColor=\"accent\"\n                        matBadgeOverlap=\"true\"\n                        matSuffix>mail\n              </mat-icon>\n            </mat-form-field>\n            <mat-form-field class=\"example-full-width\">\n              <span matPrefix>* &nbsp;</span>\n              <input type=\"password\"\n                     formControlName=\"password\"\n                     #passwordInput\n                     minlength=\"4\"\n                     required\n                     matInput\n                     placeholder=\"Password\">\n              <mat-hint align=\"start\">Enter your password</mat-hint>\n              <mat-hint align=\"end\">{{ passwordInput.value.length }} / 40</mat-hint>\n              <mat-error *ngIf=\"form.hasError('credentials')\">Your Credential is not correct</mat-error>\n              <mat-icon matSuffix\n                        [matBadgeHidden]=\"!form.hasError('credentials')\"\n                        matBadge=\"!!\"\n                        matBadgeColor=\"accent\"\n                        matBadgeOverlap=\"true\">vpn_key\n              </mat-icon>\n            </mat-form-field>\n          </form>\n        </mat-card-content>\n        <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button (click)=\"login(emailInput.value, passwordInput.value)\" color=\"primary\">Login</button>\n          <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n        </mat-card-footer>\n      </mat-card>\n    </mat-tab>\n    <mat-tab label=\"Social Login\">\n      <mat-card fxFlex=\"400px\">\n        <mat-card-header fxLayout fxLayoutAlign=\"center center\">\n          <mat-card-title>\n            <h1>\n              Social Login\n              <mat-icon color=\"primary\" svgIcon=\"messenger\">favorite</mat-icon>\n            </h1>\n            <mat-divider [inset]=\"true\"></mat-divider>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content fxLayout=\"row no-wrap\" fxLayoutAlign=\"space-evenly\" style=\"min-height: 150px;\">\n          <a mat-raised-button\n             *ngFor=\"let social of socials?.socials\"\n             [href]=\"socials.hostURL + social.loginPage\"\n             style=\"height: 40px;\" fxFlex=\"40%\">\n            <mat-icon [svgIcon]=\"social.imgName\"></mat-icon>\n            {{ social.name }}\n          </a>\n        </mat-card-content>\n        <mat-card-footer fxLayout fxLayoutAlign=\"center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button (click)=\"goback()\" color=\"primary\">Go Back</button>\n        </mat-card-footer>\n      </mat-card>\n    </mat-tab>\n  </mat-tab-group>\n\n</div>\n"
 
 /***/ }),
 
@@ -1416,6 +1534,7 @@ var LoginComponent = /** @class */ (function () {
         this.form = this.build();
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.getSocials();
     };
     LoginComponent.prototype.build = function () {
         return this.fb.group({
@@ -1439,6 +1558,10 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.goback = function () {
         this.location.back();
+    };
+    LoginComponent.prototype.getSocials = function () {
+        var _this = this;
+        this.authService.socials().subscribe(function (socials) { return _this.socials = socials; });
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2161,6 +2284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _main_bootstrap_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/bootstrap.component */ "./src/app/main/bootstrap.component.ts");
 /* harmony import */ var _login_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login/login.component */ "./src/app/login/login/login.component.ts");
+/* harmony import */ var _about_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about-me/about-me.component */ "./src/app/about/about-me/about-me.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2171,10 +2295,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: 'main', component: _main_bootstrap_component__WEBPACK_IMPORTED_MODULE_2__["BootstrapComponent"] },
     { path: '', redirectTo: 'main', pathMatch: 'full' },
     { path: 'login', component: _login_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: 'about', component: _about_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_4__["AboutMeComponent"] },
 ];
 var RoutingModule = /** @class */ (function () {
     function RoutingModule() {
@@ -2212,6 +2338,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _data_source_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data-source.service */ "./src/app/service/data-source.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2226,13 +2353,35 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AuthService = /** @class */ (function () {
-    function AuthService(http, snackBar, router) {
+    function AuthService(http, dataSource, snackBar, router) {
         this.http = http;
+        this.dataSource = dataSource;
         this.snackBar = snackBar;
         this.router = router;
+        this.socialUrl = '/social';
         this.authenticated = false;
     }
+    AuthService.prototype.socials = function () {
+        return this.dataSource.get(this.socialUrl + "/list");
+    };
+    AuthService.prototype.checkSocialLogin = function () {
+        var _this = this;
+        return this.dataSource.get("" + this.socialUrl).subscribe(function (response) {
+            if (response['name']) {
+                _this.snackBar.open('Welcome Back! You are logged in by Social Login', null, {
+                    duration: 2000,
+                    horizontalPosition: 'end',
+                    verticalPosition: 'top'
+                });
+                _this.authenticated = true;
+            }
+            else {
+                _this.authenticated = false;
+            }
+        });
+    };
     AuthService.prototype.authenticate = function (login) {
         var _this = this;
         return this.http.get('/rest/login', {
@@ -2264,6 +2413,7 @@ var AuthService = /** @class */ (function () {
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _data_source_service__WEBPACK_IMPORTED_MODULE_5__["DataSource"],
             _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSnackBar"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], AuthService);
@@ -2933,7 +3083,7 @@ module.exports = ":host {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\"\n             [ngStyle]=\"{backgroundColor : searchHidden ? '' : '#333' }\" >\n  <!--Start-->\n  <div class=\"start\">\n    <!--Sidenav Opener-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            (click)=\"sidenavChange.emit()\">\n      <mat-icon>list</mat-icon>\n    </button>\n    <!--Home-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/\" >\n      <mat-icon>home</mat-icon>\n    </button>\n    <!--Category-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/category\">\n      <mat-icon>widgets</mat-icon>\n    </button>\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>help</mat-icon>\n    </button>\n  </div>\n\n\n  <!--Search Field-->\n  <div class=\"end\">\n    <button mat-icon-button matTooltip=\"Login!\"\n            *ngIf=\"!authService.authenticated\"\n            [routerLink]=\"['/login']\"\n            style=\"margin-right: 8px\">\n      <mat-icon svgIcon=\"toggle_on\"></mat-icon>\n    </button>\n    <button mat-icon-button matTooltip=\"Logout!\"\n            *ngIf=\"authService.authenticated\"\n            (click)=\"logout()\"\n            style=\"margin-right: 8px\">\n      <mat-icon >exit_to_app</mat-icon>\n    </button>\n    <mat-form-field class=\"search-field\" color=\"primary\"\n                    [color]=\"searchHidden ? 'primary' : 'accent'\">\n      <input matInput\n             [formControl]=\"searchInput\"\n             (focus)=\"searchHidden = false\"\n             (blur)=\"searchHidden = true\"\n             placeholder=\"Search\"\n             maxlength=\"15\">\n      <mat-label>\n        <mat-icon [color]=\"searchHidden ? '' : 'accent'\" >search</mat-icon>\n      </mat-label>\n      <mat-icon matSuffix\n                [color]=\"searchHidden ? '' : 'accent'\">\n        {{ searchHidden ? 'sentiment_dissatisfied' : 'sentiment_very_satisfied' }}\n      </mat-icon>\n      <mat-hint align=\"start\" >Enter search Term</mat-hint>\n      <mat-hint align=\"end\">{{ searchInput.value.length }} / 15</mat-hint>\n    </mat-form-field>\n  </div>\n</mat-toolbar>\n<mat-toolbar class=\"search\"\n             *ngIf=\"!searchHidden\">\n  <div class=\"container\"\n       *ngIf=\"hasResult()\"\n       fxLayout\n       fxLayoutAlign=\"space-evenly start\" >\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let category of categories\"\n         [routerLink]=\"['/category', category.name]\">\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          {{ category?.name }}\n        </div>\n      </a>\n    </div>\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let topic of topics\"\n         [routerLink]=\"['/category',topic.category.name,topic.name]\"\n         [queryParams]=\"{topicId: topic.id}\">\n        <i class=\"code icon\"></i>\n        <div class=\"content\">\n          {{ topic?.name }}\n        </div>\n      </a>\n    </div>\n  </div>\n  <div class=\"container\" fxLayout\n       fxLayoutAlign=\"center\"\n       *ngIf=\"!hasResult()\">\n    <div class=\"ui list\">\n      <div class=\"item\" >\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          No Result\n        </div>\n      </div>\n    </div>\n  </div>\n\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar color=\"primary\"\n             [ngStyle]=\"{backgroundColor : searchHidden ? '' : '#333' }\" >\n  <!--Start-->\n  <div class=\"start\">\n    <!--Sidenav Opener-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            (click)=\"sidenavChange.emit()\">\n      <mat-icon>list</mat-icon>\n    </button>\n    <!--Home-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/\" >\n      <mat-icon>home</mat-icon>\n    </button>\n    <!--Category-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/category\">\n      <mat-icon>widgets</mat-icon>\n    </button>\n    <button mat-icon-button\n            routerLink=\"/about\"\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>help</mat-icon>\n    </button>\n  </div>\n\n\n  <!--Search Field-->\n  <div class=\"end\">\n    <button mat-icon-button matTooltip=\"Login!\"\n            *ngIf=\"!authService.authenticated\"\n            [routerLink]=\"['/login']\"\n            style=\"margin-right: 8px\">\n      <mat-icon svgIcon=\"toggle_on\"></mat-icon>\n    </button>\n    <button mat-icon-button matTooltip=\"Logout!\"\n            *ngIf=\"authService.authenticated\"\n            (click)=\"logout()\"\n            style=\"margin-right: 8px\">\n      <mat-icon >exit_to_app</mat-icon>\n    </button>\n    <mat-form-field class=\"search-field\" color=\"primary\"\n                    [color]=\"searchHidden ? 'primary' : 'accent'\">\n      <input matInput\n             [formControl]=\"searchInput\"\n             (focus)=\"searchHidden = false\"\n             (blur)=\"searchHidden = true\"\n             placeholder=\"Search\"\n             maxlength=\"15\">\n      <mat-label>\n        <mat-icon [color]=\"searchHidden ? '' : 'accent'\" >search</mat-icon>\n      </mat-label>\n      <mat-icon matSuffix\n                [color]=\"searchHidden ? '' : 'accent'\">\n        {{ searchHidden ? 'sentiment_dissatisfied' : 'sentiment_very_satisfied' }}\n      </mat-icon>\n      <mat-hint align=\"start\" >Enter search Term</mat-hint>\n      <mat-hint align=\"end\">{{ searchInput.value.length }} / 15</mat-hint>\n    </mat-form-field>\n  </div>\n</mat-toolbar>\n<mat-toolbar class=\"search\"\n             *ngIf=\"!searchHidden\">\n  <div class=\"container\"\n       *ngIf=\"hasResult()\"\n       fxLayout\n       fxLayoutAlign=\"space-evenly start\" >\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let category of categories\"\n         [routerLink]=\"['/category', category.name]\">\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          {{ category?.name }}\n        </div>\n      </a>\n    </div>\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let topic of topics\"\n         [routerLink]=\"['/category',topic.category.name,topic.name]\"\n         [queryParams]=\"{topicId: topic.id}\">\n        <i class=\"code icon\"></i>\n        <div class=\"content\">\n          {{ topic?.name }}\n        </div>\n      </a>\n    </div>\n  </div>\n  <div class=\"container\" fxLayout\n       fxLayoutAlign=\"center\"\n       *ngIf=\"!hasResult()\">\n    <div class=\"ui list\">\n      <div class=\"item\" >\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          No Result\n        </div>\n      </div>\n    </div>\n  </div>\n\n</mat-toolbar>\n"
 
 /***/ }),
 

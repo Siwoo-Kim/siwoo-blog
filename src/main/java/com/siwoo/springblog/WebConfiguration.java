@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.siwoo.springblog.converter.StringToCategoryConverter;
 import com.siwoo.springblog.converter.StringToDomainConverter;
 import com.siwoo.springblog.converter.StringToTopicConverter;
+import com.siwoo.springblog.domain.Social;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +16,10 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -87,6 +88,15 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
     @Override
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(0, mappingJackson2HttpMessageConverter());
+    }
+
+
+    @Bean(name = "socials")
+    List<Social> socials() {
+        return Arrays.asList(
+                new Social("google"),
+                new Social("facebook"),
+                new Social("github"));
     }
 }
 

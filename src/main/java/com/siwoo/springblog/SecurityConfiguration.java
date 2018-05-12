@@ -41,6 +41,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new RegexRequestMatcher("/rest/logout", HttpMethod.POST.toString()))
                 .permitAll()
                 .and()
+                .oauth2Login()
+                .and()
                 .csrf()
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
