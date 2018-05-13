@@ -24,6 +24,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(of = {"id", "title", "content"})
 public class Notice {
 
+    public static final String IMG_RESOURCE_PATH = "/assets/img/notice/";
     private static final Role NOTICE_FOR_ROLE = ADMIN;
 
     @Id
@@ -33,6 +34,8 @@ public class Notice {
     private String title;
 
     private String content;
+
+    private Image image;
 
     private BasicDate basicDate;
 

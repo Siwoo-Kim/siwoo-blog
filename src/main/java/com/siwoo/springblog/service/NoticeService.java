@@ -1,6 +1,7 @@
 package com.siwoo.springblog.service;
 
 import com.siwoo.springblog.domain.Notice;
+import com.siwoo.springblog.domain.NoticeReply;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
@@ -21,4 +22,6 @@ public interface NoticeService {
     @Transactional(readOnly = false)
     Notice announce(@Valid Notice notice);
 
+    @Transactional(readOnly = false)
+    NoticeReply reply(@Valid NoticeReply noticeReply);
 }

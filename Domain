@@ -1,4 +1,15 @@
 
+@Embeddable
+
+BasicTime
+    updated: LocalDateTime
+    created: LocalDateTime
+
+BasicDate
+    updated: LocalDate
+    created: LocalDate
+    lastUpdated: <updated|created>
+
 Domain
     name: string
     description: string
@@ -10,6 +21,15 @@ Notice
     basicDate: BasicDate
     blogger: Blogger[BloggerRole.Role:ADMIN]
     likes: int
+
+
+NoticeReply
+    notice: Notice
+    blogger: Blogger
+    content: string @Length(max=50, min=5)
+    basicDate: BasicDate
+    children: Set<NoticeReply>
+    parent: NoticeReply
 
 Blogger
     email: string
@@ -23,9 +43,6 @@ BloggerRole
     role: {ADMIN, GUEST}
 
 
-BasicTime
-    updated
-    created
 
 Language:
     Name :string

@@ -3,6 +3,7 @@ package com.siwoo.springblog.domain;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
@@ -19,12 +20,18 @@ import static junit.framework.TestCase.assertTrue;
 public class TestBasicDate {
 
     @Test
-    public void daysFromNow() {
-        BasicDate basicDate = new BasicDate(LocalDate.of(2018, 5, 8), LocalDate.of(2018, 5, 9));
-        assertEquals(basicDate.daysAgo(), 1);
-        basicDate = new BasicDate(LocalDate.of(2018, 5, 8), null);
-        assertEquals(basicDate.daysAgo(), 2);
+    public void daysAgo() {
+        LocalDate created = LocalDate.of(2018, 5, 8);
+        LocalDate upadted = LocalDate.of(2018, 5, 9);
+        BasicDate basicDate = new BasicDate(created, upadted);
+        Period period = Period.between(upadted, LocalDate.now());
+        assertEquals(basicDate.daysAgo(), period.getYears() + " years, " + period.getMonths() + " months, " + period.getDays() + " days ago");
+        basicDate = new BasicDate(created, null);
+        period = Period.between(created, LocalDate.now());
+        assertEquals(basicDate.daysAgo(), period.getYears() + " years, " + period.getMonths() + " months, " + period.getDays() + " days ago");
         basicDate = new BasicDate(null, null);
-        assertEquals(basicDate.daysAgo(), -1);
+        assertEquals(basicDate.daysAgo(), "Time not saved");
     }
+
+
 }

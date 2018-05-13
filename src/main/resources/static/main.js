@@ -251,12 +251,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./service/service.module */ "./src/app/service/service.module.ts");
 /* harmony import */ var _login_login_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./login/login.module */ "./src/app/login/login.module.ts");
 /* harmony import */ var _about_about_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./about/about.module */ "./src/app/about/about.module.ts");
+/* harmony import */ var _notice_notice_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./notice/notice.module */ "./src/app/notice/notice.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -291,6 +293,7 @@ var AppModule = /** @class */ (function () {
                 _login_login_module__WEBPACK_IMPORTED_MODULE_11__["LoginModule"],
                 _category_category_module__WEBPACK_IMPORTED_MODULE_7__["CategoryModule"],
                 _about_about_module__WEBPACK_IMPORTED_MODULE_12__["AboutModule"],
+                _notice_notice_module__WEBPACK_IMPORTED_MODULE_13__["NoticeModule"],
             ],
             providers: [
                 { provide: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["BACKEND_URL_TOKEN"], useValue: _app_tokens__WEBPACK_IMPORTED_MODULE_9__["PROD_BACKEND_URL"] },
@@ -2342,6 +2345,132 @@ var Topic = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/notice/notice-bootstrap.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/notice/notice-bootstrap.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n  min-height: 800px;\r\n  margin-top: 50px;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.main-notice {\r\n  margin-top: 50px;\r\n}\r\n\r\n.sub-notice {\r\n  margin-top: 55px;\r\n  margin-bottom: 55px;\r\n  height: 400px;\r\n  line-height: 1.4285em;\r\n  font: 400 14px/20px Roboto,\"Helvetica Neue\",sans-serif;;\r\n}\r\n\r\na.author {\r\n  font-family:  Lato;\r\n  margin-top: 5px;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/notice/notice-bootstrap.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/notice/notice-bootstrap.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div\n  class=\"ui container\" style=\"height: 100%\"\n  fxLayout=\"row no-wrap\" fxLayoutAlign=\"space-between\">\n  <div class=\"main-notice ui middle aligned stackable grid container\" fxFlex=\"100%\">\n    <div class=\"ui row\" >\n      <div class=\"seven wide left floated column\">\n        <img [src]=\"firstNotice?.image.fullPath\" class=\"ui large bordered rounded image\">\n      </div>\n      <div class=\"eight wide column\">\n        <h3 class=\"ui header\">{{ firstNotice?.title}}</h3>\n        <p> {{ firstNotice?.content }}</p>\n        <div class=\"ui comments\">\n          <div class=\"comment\">\n            <a class=\"avatar\">\n              <img [src]=\"firstNotice?.blogger.avatarImgPath\">\n            </a>\n            <div class=\"metadata\">\n              <div class=\"date\">{{ firstNotice?.basicDate.daysAgo }}</div>\n              <div class=\"rating\">\n                <i class=\"like icon\"></i>\n                {{ firstNotice?.likes }} likes\n              </div>\n            </div>\n            <div class=\"content\">\n              <a class=\"author\">{{ firstNotice?.blogger.name }}</a>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <mat-card class=\"sub-notice\" fxFlex=\"350px\" *ngFor=\"let notice of notices\" >\n    <img mat-card-image [src]=\"notice?.image.fullPath\" >\n    <mat-card-content>\n      <p>\n        {{ notice?.content }}\n      </p>\n    </mat-card-content>\n    <mat-card-footer fxLayout fxLayoutAlign=\"center end\">\n      <div class=\"ui comments\">\n        <div class=\"comment\">\n          <a class=\"avatar\">\n            <img [src]=\"notice?.blogger.avatarImgPath\">\n          </a>\n          <div class=\"metadata\">\n            <div class=\"date\">{{ notice?.basicDate.daysAgo }}</div>\n            <div class=\"rating\">\n              <i class=\"like icon\"></i>\n              {{ notice?.likes }} likes\n            </div>\n          </div>\n          <div class=\"content\">\n            <a class=\"author\">{{ notice?.blogger.name }}</a>\n          </div>\n        </div>\n      </div>\n    </mat-card-footer>\n  </mat-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/notice/notice-bootstrap.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/notice/notice-bootstrap.component.ts ***!
+  \******************************************************/
+/*! exports provided: NoticeBootstrapComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoticeBootstrapComponent", function() { return NoticeBootstrapComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_notice_repository_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/notice-repository.service */ "./src/app/service/notice-repository.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var NoticeBootstrapComponent = /** @class */ (function () {
+    function NoticeBootstrapComponent(noticeRepository) {
+        this.noticeRepository = noticeRepository;
+    }
+    NoticeBootstrapComponent.prototype.ngOnInit = function () {
+        this.getNotices();
+    };
+    NoticeBootstrapComponent.prototype.getNotices = function () {
+        var _this = this;
+        this.noticeRepository
+            .all()
+            .subscribe(function (notices) {
+            _this.firstNotice = notices[0];
+            _this.notices = notices.slice(1, notices.length);
+            console.log(_this.firstNotice);
+            console.log(_this.notices);
+        });
+    };
+    NoticeBootstrapComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-notice-bootstrap',
+            template: __webpack_require__(/*! ./notice-bootstrap.component.html */ "./src/app/notice/notice-bootstrap.component.html"),
+            styles: [__webpack_require__(/*! ./notice-bootstrap.component.css */ "./src/app/notice/notice-bootstrap.component.css")]
+        }),
+        __metadata("design:paramtypes", [_service_notice_repository_service__WEBPACK_IMPORTED_MODULE_1__["NoticeRepository"]])
+    ], NoticeBootstrapComponent);
+    return NoticeBootstrapComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/notice/notice.module.ts":
+/*!*****************************************!*\
+  !*** ./src/app/notice/notice.module.ts ***!
+  \*****************************************/
+/*! exports provided: NoticeModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoticeModule", function() { return NoticeModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _service_service_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/service.module */ "./src/app/service/service.module.ts");
+/* harmony import */ var _notice_bootstrap_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./notice-bootstrap.component */ "./src/app/notice/notice-bootstrap.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var NoticeModule = /** @class */ (function () {
+    function NoticeModule() {
+    }
+    NoticeModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__["SharedModule"],
+                _service_service_module__WEBPACK_IMPORTED_MODULE_3__["ServiceModule"],
+            ],
+            declarations: [
+                _notice_bootstrap_component__WEBPACK_IMPORTED_MODULE_4__["NoticeBootstrapComponent"]
+            ],
+        })
+    ], NoticeModule);
+    return NoticeModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/routing.module.ts":
 /*!***********************************!*\
   !*** ./src/app/routing.module.ts ***!
@@ -2357,6 +2486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_bootstrap_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/bootstrap.component */ "./src/app/main/bootstrap.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _about_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about-me/about-me.component */ "./src/app/about/about-me/about-me.component.ts");
+/* harmony import */ var _notice_notice_bootstrap_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./notice/notice-bootstrap.component */ "./src/app/notice/notice-bootstrap.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2368,10 +2498,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: 'main', component: _main_bootstrap_component__WEBPACK_IMPORTED_MODULE_2__["BootstrapComponent"] },
     { path: '', redirectTo: 'main', pathMatch: 'full' },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: 'notice', component: _notice_notice_bootstrap_component__WEBPACK_IMPORTED_MODULE_5__["NoticeBootstrapComponent"] },
     { path: 'about', component: _about_about_me_about_me_component__WEBPACK_IMPORTED_MODULE_4__["AboutMeComponent"] },
 ];
 var RoutingModule = /** @class */ (function () {
@@ -3154,7 +3286,7 @@ module.exports = ":host {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\"\n             [ngStyle]=\"{backgroundColor : searchHidden ? '' : '#333' }\" >\n  <!--Start-->\n  <div class=\"start\" fxHide.lt-sm=\"true\">\n    <!--Sidenav Opener-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            (click)=\"sidenavChange.emit()\">\n      <mat-icon>list</mat-icon>\n    </button>\n    <!--Home-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/\" >\n      <mat-icon>home</mat-icon>\n    </button>\n    <!--Category-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/category\">\n      <mat-icon>widgets</mat-icon>\n    </button>\n    <button mat-icon-button\n            routerLink=\"/about\"\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>help</mat-icon>\n    </button>\n  </div>\n\n\n  <!--Search Field-->\n  <div class=\"end\">\n    <button mat-icon-button matTooltip=\"Login!\"\n            *ngIf=\"!authService.authenticated\"\n            [routerLink]=\"['/login']\"\n            style=\"margin-right: 8px\">\n      <mat-icon svgIcon=\"toggle_on\"></mat-icon>\n    </button>\n    <button mat-icon-button matTooltip=\"Logout!\"\n            *ngIf=\"authService.authenticated\"\n            (click)=\"logout()\"\n            style=\"margin-right: 8px\">\n      <mat-icon >exit_to_app</mat-icon>\n    </button>\n    <mat-form-field class=\"search-field\" color=\"primary\"\n                    [color]=\"searchHidden ? 'primary' : 'accent'\">\n      <input matInput\n             [formControl]=\"searchInput\"\n             (focus)=\"searchHidden = false\"\n             (blur)=\"searchHidden = true\"\n             placeholder=\"Search\"\n             maxlength=\"15\">\n      <mat-label>\n        <mat-icon [color]=\"searchHidden ? '' : 'accent'\" >search</mat-icon>\n      </mat-label>\n      <mat-icon matSuffix\n                [color]=\"searchHidden ? '' : 'accent'\">\n        {{ searchHidden ? 'sentiment_dissatisfied' : 'sentiment_very_satisfied' }}\n      </mat-icon>\n      <mat-hint align=\"start\" >Enter search Term</mat-hint>\n      <mat-hint align=\"end\">{{ searchInput.value.length }} / 15</mat-hint>\n    </mat-form-field>\n  </div>\n</mat-toolbar>\n<mat-toolbar class=\"search\"\n             *ngIf=\"!searchHidden\">\n  <div class=\"container\"\n       *ngIf=\"hasResult()\"\n       fxLayout\n       fxLayoutAlign=\"space-evenly start\" >\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let category of categories\"\n         [routerLink]=\"['/category', category.name]\">\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          {{ category?.name }}\n        </div>\n      </a>\n    </div>\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let topic of topics\"\n         [routerLink]=\"['/category',topic.category.name,topic.name]\"\n         [queryParams]=\"{topicId: topic.id}\">\n        <i class=\"code icon\"></i>\n        <div class=\"content\">\n          {{ topic?.name }}\n        </div>\n      </a>\n    </div>\n  </div>\n  <div class=\"container\" fxLayout\n       fxLayoutAlign=\"center\"\n       *ngIf=\"!hasResult()\">\n    <div class=\"ui list\">\n      <div class=\"item\" >\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          No Result\n        </div>\n      </div>\n    </div>\n  </div>\n\n</mat-toolbar>\n"
+module.exports = "<mat-toolbar color=\"primary\"\n             [ngStyle]=\"{backgroundColor : searchHidden ? '' : '#333' }\" >\n  <!--Start-->\n  <div class=\"start\">\n    <!--Sidenav Opener-->\n    <button mat-icon-button\n            [color]=\"searchHidden ? '' : 'accent'\"\n            (click)=\"sidenavChange.emit()\">\n      <mat-icon>list</mat-icon>\n    </button>\n    <!--Home-->\n    <button mat-icon-button\n            fxHide.lt-sm=\"true\"\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/\" >\n      <mat-icon>home</mat-icon>\n    </button>\n    <!--Category-->\n    <button mat-icon-button\n            fxHide.lt-sm=\"true\"\n            [color]=\"searchHidden ? '' : 'accent'\"\n            routerLink=\"/category\">\n      <mat-icon>widgets</mat-icon>\n    </button>\n    <button mat-icon-button\n            fxHide.lt-sm=\"true\"\n            routerLink=\"/notice\"\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>new_releases</mat-icon>\n    </button>\n    <button mat-icon-button\n            fxHide.lt-sm=\"true\"\n            routerLink=\"/about\"\n            [color]=\"searchHidden ? '' : 'accent'\">\n      <mat-icon>help</mat-icon>\n    </button>\n  </div>\n\n\n  <!--Search Field-->\n  <div class=\"end\">\n    <button mat-icon-button matTooltip=\"Login!\"\n            *ngIf=\"!authService.authenticated\"\n            [routerLink]=\"['/login']\"\n            style=\"margin-right: 8px\">\n      <mat-icon svgIcon=\"toggle_on\"></mat-icon>\n    </button>\n    <button mat-icon-button matTooltip=\"Logout!\"\n            *ngIf=\"authService.authenticated\"\n            (click)=\"logout()\"\n            style=\"margin-right: 8px\">\n      <mat-icon >exit_to_app</mat-icon>\n    </button>\n    <mat-form-field class=\"search-field\" color=\"primary\"\n                    [color]=\"searchHidden ? 'primary' : 'accent'\">\n      <input matInput\n             [formControl]=\"searchInput\"\n             (focus)=\"searchHidden = false\"\n             (blur)=\"searchHidden = true\"\n             placeholder=\"Search\"\n             maxlength=\"15\">\n      <mat-label>\n        <mat-icon [color]=\"searchHidden ? '' : 'accent'\" >search</mat-icon>\n      </mat-label>\n      <mat-icon matSuffix\n                [color]=\"searchHidden ? '' : 'accent'\">\n        {{ searchHidden ? 'sentiment_dissatisfied' : 'sentiment_very_satisfied' }}\n      </mat-icon>\n      <mat-hint align=\"start\" >Enter search Term</mat-hint>\n      <mat-hint align=\"end\">{{ searchInput.value.length }} / 15</mat-hint>\n    </mat-form-field>\n  </div>\n</mat-toolbar>\n<mat-toolbar class=\"search\"\n             *ngIf=\"!searchHidden\">\n  <div class=\"container\"\n       *ngIf=\"hasResult()\"\n       fxLayout\n       fxLayoutAlign=\"space-evenly start\" >\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let category of categories\"\n         [routerLink]=\"['/category', category.name]\">\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          {{ category?.name }}\n        </div>\n      </a>\n    </div>\n    <div class=\"ui list\">\n      <a class=\"item\"\n         *ngFor=\"let topic of topics\"\n         [routerLink]=\"['/category',topic.category.name,topic.name]\"\n         [queryParams]=\"{topicId: topic.id}\">\n        <i class=\"code icon\"></i>\n        <div class=\"content\">\n          {{ topic?.name }}\n        </div>\n      </a>\n    </div>\n  </div>\n  <div class=\"container\" fxLayout\n       fxLayoutAlign=\"center\"\n       *ngIf=\"!hasResult()\">\n    <div class=\"ui list\">\n      <div class=\"item\" >\n        <i class=\"marker icon\"></i>\n        <div class=\"content\">\n          No Result\n        </div>\n      </div>\n    </div>\n  </div>\n\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -3515,7 +3647,7 @@ module.exports = "\r\n.nav-text {\r\n  font: 15px Roboto,\"Helvetica Neue\",sans
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button class=\"btn-block\"\n        fxLayout\n        mat-raised-button\n        fxLayoutAlign=\"space-between\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/login\" >\n  <mat-icon color=\"primary\" fxFlex svgIcon=\"messenger\" ></mat-icon>\n  <span class=\"nav-text\" fxFlex >Login <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/main\" >\n  <mat-icon color=\"primary\" >home</mat-icon>\n  <span class=\"nav-text\" >Home <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/login\" >\n  <mat-icon color=\"primary\" >widgets</mat-icon>\n  <span class=\"nav-text\" >Category <i class=\"icon ui angle right\"></i></span>\n</button>\n"
+module.exports = "<button mat-button class=\"btn-block\"\n        fxLayout\n        mat-raised-button\n        fxLayoutAlign=\"space-between\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/login\" >\n  <mat-icon color=\"primary\" fxFlex svgIcon=\"messenger\" ></mat-icon>\n  <span class=\"nav-text\" fxFlex >Login <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/main\" >\n  <mat-icon color=\"primary\" >home</mat-icon>\n  <span class=\"nav-text\" >Home <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/notice\" >\n  <mat-icon color=\"primary\" >new_releases</mat-icon>\n  <span class=\"nav-text\" >Notice <i class=\"icon ui angle right\"></i></span>\n</button>\n<button mat-raised-button\n        class=\"btn-block\"\n        fxLayout\n        fxFlexAlign=\"start\"\n        (click)=\"closeSidebar.emit()\"\n        routerLink=\"/login\" >\n  <mat-icon color=\"primary\" >widgets</mat-icon>\n  <span class=\"nav-text\" >Category <i class=\"icon ui angle right\"></i></span>\n</button>\n"
 
 /***/ }),
 

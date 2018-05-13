@@ -9,6 +9,7 @@ import static com.siwoo.springblog.domain.BloggerRole.Role;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -50,13 +51,14 @@ public class Blogger {
 
     public void addRole(BloggerRole role) {
         this.roles.add(role);
-        if (role.getBlogger() != this) {
+        if (role != null && role.getBlogger() != this) {
             role.setBlogger(this);
         }
     }
 
     public Set<Role> resolveRoles() {
         return this.roles.stream()
+                .filter(Objects::nonNull)
                 .map(BloggerRole::getRole)
                 .collect(Collectors.toSet());
     }

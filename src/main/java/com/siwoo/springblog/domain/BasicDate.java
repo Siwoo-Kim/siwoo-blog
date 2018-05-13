@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import javax.persistence.Embeddable;
+import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -23,6 +24,7 @@ import java.time.Period;
 @Getter
 @EqualsAndHashCode(of = {"created", "updated"})
 public class BasicDate {
+    static final String DAYS_AGO_PATTERN =  "{0} years, {1} months, {2} days ago";
 
     private LocalDate created;
     private LocalDate updated;
@@ -35,13 +37,25 @@ public class BasicDate {
         this.updated = updated;
     }
 
-    @JsonProperty("daysAgo")
-    public int daysAgo() {
-        if (created == null && updated == null) {
-            return -1;
-        }
-        return updated == null ?
-                Period.between(created, LocalDate.now()).getDays()
-                : Period.between(updated, LocalDate.now()).getDays();
+
+    public BasicDate(LocalDate created) {
+        this.created = created;
+        this.updated = null;
     }
+
+    @JsonProperty
+    public LocalDate lastUpdated() {
+        return updated != null ? updated : created;
+    }
+
+    @JsonProperty("daysAgo")
+    public String daysAgo() {
+        if( lastUpdated() != null) {
+            Period period = Period.between(lastUpdated(), LocalDate.now());
+            return MessageFormat.format(DAYS_AGO_PATTERN, period.getYears(), period.getMonths(), period.getDays());
+        } else {
+            return "Time not saved";
+        }
+    }
+
 }
